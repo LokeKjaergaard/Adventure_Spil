@@ -1,6 +1,22 @@
 import java.util.Scanner;
 
 public class Main {
+    /*
+    public enum directions {
+        GO_NORTH,
+        GO_SOUTH,
+        GO_WEST,
+        GO_EAST;
+    }
+
+
+    public void goDirection(text.directions direction) {
+
+        switch(direction){
+            case GO_NORTH -> System.out.println("");
+        }
+    }
+   */
 
     static void main(String[] args) {
         Room room1 = new Room("Room 1", "The entrance to the abandoned building.");
@@ -79,11 +95,6 @@ public class Main {
                 } else System.out.println("You cannot go that way!");
 
             } else System.out.println("That's not a valid direction");
-
-
         }
-
-
     }
-
 }
