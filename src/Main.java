@@ -47,20 +47,18 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         String input;
 
-        while (true){
+        while (true) {
             System.out.println("You are in " + currentRoom.getName());
             input = scanner.nextLine();
-
-            if (input.equalsIgnoreCase("Go east")){
+            if (input.equalsIgnoreCase("Go east")) {
                 next = currentRoom.getEast();
-                if (next != null){
+                if (next != null) {
                     currentRoom = next;
                     System.out.println(currentRoom.getName() + " " + currentRoom.getDescription());
-                } System.out.println("You cant go that way!");
-
-            } else if (input.equalsIgnoreCase("Go west")){
+                } else System.out.println("You cant go that way!");
+            } else if (input.equalsIgnoreCase("Go west")) {
                 next = currentRoom.getWest();
-                if (next != null){
+                if (next != null) {
                     currentRoom = next;
                     System.out.println(currentRoom.getName() + " " + currentRoom.getDescription());
                 } else System.out.println("You cant go that way!");
