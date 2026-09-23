@@ -13,6 +13,10 @@ public class Main {
         Room room8 = new Room("Room 8", "A room");
         Room room9 = new Room("Room 9", "A room");
 
+        Room currentRoom = room1;
+        Room next;
+
+
         room1.setEast(room2);
         room1.setSouth(room4);
 
@@ -41,16 +45,29 @@ public class Main {
         room9.setWest(room8);
 
         Scanner scanner = new Scanner(System.in);
-        String input = scanner.nextLine();
+        String input;
 
         while (true){
-            System.out.println("You are in " + room1.getName());
+            System.out.println("You are in " + currentRoom.getName());
             input = scanner.nextLine();
             if (input.equalsIgnoreCase("Go east")){
-                if (room1.getName().equalsIgnoreCase("Room 1")){
-                    break;
-                }
-            }
+                next = currentRoom.getEast();
+                if (next != null){
+                    currentRoom = next;
+                    System.out.println(currentRoom.getName() + " " + currentRoom.getDescription());
+                } System.out.println("You cant go that way!");
+            } else if (input.equalsIgnoreCase("Go west")){
+                next = currentRoom.getWest();
+                if (next != null){
+                    currentRoom = next;
+                    System.out.println(currentRoom.getName() + " " + currentRoom.getDescription());
+                } else System.out.println("You cant go that way!");
+            } else System.out.println("That not a valid direction");
+
+
+
+
+
 
 
         }
