@@ -47,32 +47,34 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         String input;
 
-        while (true){
+        while (true) {
             System.out.println("You are in " + currentRoom.getName());
             input = scanner.nextLine();
-            if (input.equalsIgnoreCase("Go east")){
+            if (input.equalsIgnoreCase("Go east")) {
                 next = currentRoom.getEast();
-                if (next != null){
-                    currentRoom = next;
-                    System.out.println(currentRoom.getName() + " " + currentRoom.getDescription());
-                } System.out.println("You cant go that way!");
-            } else if (input.equalsIgnoreCase("Go west")){
-                next = currentRoom.getWest();
-                if (next != null){
+                if (next != null) {
                     currentRoom = next;
                     System.out.println(currentRoom.getName() + " " + currentRoom.getDescription());
                 } else System.out.println("You cant go that way!");
-            } else System.out.println("That not a valid direction");
-
-
-
-
-
-
-
+            } else if (input.equalsIgnoreCase("Go west")) {
+                next = currentRoom.getWest();
+                if (next != null) {
+                    currentRoom = next;
+                    System.out.println(currentRoom.getName() + " " + currentRoom.getDescription());
+                } else System.out.println("You cant go that way!");
+            } else if (input.equalsIgnoreCase("Go North")) {
+                next = currentRoom.getNorth();
+                if (next != null) {
+                    currentRoom = next;
+                    System.out.println(currentRoom.getName() + " " + currentRoom.getDescription());
+                } else System.out.println("You cant go that way!");
+            } else if (input.equalsIgnoreCase("Go South")) {
+                next = currentRoom.getSouth();
+                if (next != null) {
+                    currentRoom = next;
+                    System.out.println(currentRoom.getName() + " " + currentRoom.getDescription());
+                } else System.out.println("You cant go that way!");
+            } else System.out.println("That's not a valid direction!");
         }
-
-
     }
-
 }
