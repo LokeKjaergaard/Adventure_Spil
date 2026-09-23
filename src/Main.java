@@ -48,26 +48,37 @@ public class Main {
         String input;
 
         while (true) {
-            System.out.println("You are in " + currentRoom.getName());
+            System.out.println("You are in " + currentRoom.getName() + ", " + currentRoom.getDescription());
             input = scanner.nextLine();
             if (input.equalsIgnoreCase("Go east")) {
                 next = currentRoom.getEast();
                 if (next != null) {
                     currentRoom = next;
                     System.out.println(currentRoom.getName() + " " + currentRoom.getDescription());
-                } else System.out.println("You cant go that way!");
-            } else if (input.equalsIgnoreCase("Go west")) {
+                } else System.out.println("You cannot go that way!");
+            }
+            else if (input.equalsIgnoreCase("Go west")) {
                 next = currentRoom.getWest();
                 if (next != null) {
                     currentRoom = next;
                     System.out.println(currentRoom.getName() + " " + currentRoom.getDescription());
-                } else System.out.println("You cant go that way!");
-            } else System.out.println("That not a valid direction");
+                } else System.out.println("You cannot go that way!");
+            }
+            else if (input.equalsIgnoreCase("Go north")) {
+                next = currentRoom.getNorth();
+                if (next != null) {
+                    currentRoom = next;
+                    System.out.println(currentRoom.getName() + " " + currentRoom.getDescription());
+                } else System.out.println("You cannot go that way!");
 
+            } else if (input.equalsIgnoreCase("Go south")) {
+                next = currentRoom.getSouth();
+                if (next != null) {
+                    currentRoom = next;
+                    System.out.println(currentRoom.getName() + " " + currentRoom.getDescription());
+                } else System.out.println("You cannot go that way!");
 
-
-
-
+            } else System.out.println("That's not a valid direction");
 
 
         }
