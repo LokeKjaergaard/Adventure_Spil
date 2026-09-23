@@ -3,6 +3,8 @@ import java.util.ArrayList;
 public class Room {
     private String name;
     private String description;
+    private  boolean hasVisited = false;
+
 
     private Room north;
     private Room south;
@@ -62,4 +64,11 @@ public class Room {
         this.description = description;
     }
 
+    public void makeVisited() {
+        hasVisited = true;
+    }
+
+    public boolean isVisited() {
+        return hasVisited;
+    }
 }
