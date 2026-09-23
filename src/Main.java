@@ -3,15 +3,15 @@ import java.util.Scanner;
 public class Main {
 
     static void main(String[] args) {
-        Room room1 = new Room("Room 1", "A room");
-        Room room2 = new Room("Room 2", "A room");
-        Room room3 = new Room("Room 3", "A room");
-        Room room4 = new Room("Room 4", "A room");
-        Room room5 = new Room("Room 5", "A room");
-        Room room6 = new Room("Room 6", "A room");
-        Room room7 = new Room("Room 7", "A room");
-        Room room8 = new Room("Room 8", "A room");
-        Room room9 = new Room("Room 9", "A room");
+        Room room1 = new Room("Room 1", "The entrance to the abandoned building.");
+        Room room2 = new Room("Room 2", "An old office with a desk and some documents.");
+        Room room3 = new Room("Room 3", "A meeting room with notes left on the board.");
+        Room room4 = new Room("Room 4", "An old kitchen that looks like it was left in a hurry.");
+        Room room5 = new Room("Room 5", "A storage room filled with old boxes and equipment.");
+        Room room6 = new Room("Room 6", "A technical room with old machines and electrical panels.");
+        Room room7 = new Room("Room 7", "An archive containing reports about an old incident.");
+        Room room8 = new Room("Room 8", "A break room with a few personal belongings left behind.");
+        Room room9 = new Room("Room 9", "An empty room with a strange map of the building.");
 
         Room currentRoom = room1;
         Room next;
@@ -50,12 +50,14 @@ public class Main {
         while (true){
             System.out.println("You are in " + currentRoom.getName());
             input = scanner.nextLine();
+
             if (input.equalsIgnoreCase("Go east")){
                 next = currentRoom.getEast();
                 if (next != null){
                     currentRoom = next;
                     System.out.println(currentRoom.getName() + " " + currentRoom.getDescription());
                 } System.out.println("You cant go that way!");
+
             } else if (input.equalsIgnoreCase("Go west")){
                 next = currentRoom.getWest();
                 if (next != null){
