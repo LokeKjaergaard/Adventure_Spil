@@ -1,16 +1,20 @@
 import java.util.ArrayList;
 
 public class Room {
+
+    // basic room info
     private String name;
     private String description;
     private boolean hasVisited = false;
     private boolean isDark;
 
+    // neighboring rooms
     private Room north;
     private Room south;
     private Room east;
     private Room west;
 
+    // a room adjacent to the current room can be locked (currently unimplemented)
     private boolean isRoomNLocked;
     private boolean isRoomSLocked;
     private boolean isRoomWLocked;
@@ -56,7 +60,7 @@ public class Room {
 
         if (doors.isEmpty()){
             System.out.println("Possible directions unknown. Try to go in different directions to find new rooms");
-        } else System.out.println("There are doors to the: " + doors + ".");
+        } else System.out.println("There are door(s) to the: " + doors + ".");
     }
 
     public String getName() {
