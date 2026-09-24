@@ -82,7 +82,10 @@ public class Adventure {
                     System.out.println(currentRoom.getDescription());
                     break;
                 case "exit":
-                    break;
+
+                    System.out.println("Goodbye!");
+                    return;
+
                 default:
                     System.out.println("Invalid command!");
                     break;
