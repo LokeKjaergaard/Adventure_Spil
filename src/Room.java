@@ -16,9 +16,10 @@ public class Room {
     private boolean isRoomWLocked;
     private boolean isRoomELocked;
 
-    public Room (String name, String description){
+    public Room (String name, String description, boolean isDark) {
         this.name = name;
         this.description = description;
+        this.isDark = isDark;
     }
 
     public void printConnectedRooms() {
@@ -111,5 +112,17 @@ public class Room {
 
     public boolean isVisited() {
         return hasVisited;
+    }
+
+    public boolean isDark() {
+        return isDark;
+    }
+
+    public void turnOnLight() {
+        isDark = true;
+    }
+
+    public void turnOffLight() {
+        isDark = false;
     }
 }
