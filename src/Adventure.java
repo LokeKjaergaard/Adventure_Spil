@@ -86,7 +86,8 @@ public class Adventure {
                     break;
 
                 case "exit":
-                    break;
+                    System.out.println("Goodbye!");
+                    return;
 
                 default:
                     System.out.println("Invalid command!");
