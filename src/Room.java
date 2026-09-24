@@ -55,7 +55,7 @@ public class Room {
         }
 
         if (doors.isEmpty()){
-            System.out.println("Possible directions unknown. Try to got different directions to find new rooms");
+            System.out.println("Possible directions unknown. Try to go in different directions to find new rooms");
         } else System.out.println("There are doors to the: " + doors + ".");
     }
 
