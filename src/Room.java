@@ -119,11 +119,11 @@ public class Room {
     }
 
     public void turnOnLight() {
-        isDark = true;
+        this.isDark = false;
     }
 
     public void turnOffLight() {
-        isDark = false;
+        this.isDark = true;
     }
 
 
