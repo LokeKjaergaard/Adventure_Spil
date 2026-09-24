@@ -46,7 +46,7 @@ public class Adventure {
                 System.out.println("You are in " + currentRoom.getName() + ", " + currentRoom.getDescription());
                 currentRoom.makeVisited();
             } else System.out.println("You are in " + currentRoom.getName());
-            currentRoom.printConnectedRooms();
+                currentRoom.printConnectedRooms();
 
             // Await player input
             System.out.println();
@@ -81,10 +81,8 @@ public class Adventure {
                 case "look":
                     System.out.println(currentRoom.getDescription());
                     break;
-
                 case "exit":
                     break;
-
                 default:
                     System.out.println("Invalid command!");
                     break;
