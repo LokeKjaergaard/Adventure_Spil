@@ -19,29 +19,22 @@ public class Adventure {
         room1.setEast(room2);
         room1.setSouth(room4);
 
-        room2.setWest(room1);
+
         room2.setEast(room3);
 
-        room3.setWest(room2);
+
         room3.setSouth(room6);
 
-        room4.setNorth(room1);
+
         room4.setSouth(room7);
 
         room5.setSouth(room8);
 
-        room6.setNorth(room3);
         room6.setSouth(room9);
 
-        room7.setNorth(room4);
         room7.setEast(room8);
 
-        room8.setNorth(room5);
-        room8.setWest(room7);
         room8.setEast(room9);
-
-        room9.setNorth(room6);
-        room9.setWest(room8);
 
         Scanner scanner = new Scanner(System.in);
         String input;
@@ -57,7 +50,8 @@ public class Adventure {
 
             // Await player input
             System.out.println();
-            System.out.print("What do you want to do? ");
+            System.out.println("What do you want to do?");
+            System.out.print(": ");
             input = scanner.nextLine();
 
             next = null;
@@ -76,6 +70,14 @@ public class Adventure {
                 case "go west":
                     next = currentRoom.getWest();
                     break;
+
+                case "turn on light":
+                    currentRoom.turnOnLight();
+                    break;
+                case "turn off light":
+                    currentRoom.turnOffLight();
+                    break;
+
                 case "help":
                     UserInterface.printHelp();
                     break;
@@ -87,9 +89,8 @@ public class Adventure {
                     break;
 
                 default:
-                    System.out.println("That direction is not possible ");
+                    System.out.println("Invalid command!");
                     break;
-
             }
 
             if (next != null) {

@@ -124,10 +124,12 @@ public class Room {
 
     public void turnOnLight() {
         this.isDark = false;
+        System.out.println("You turned on the light");
     }
 
     public void turnOffLight() {
         this.isDark = true;
+        System.out.println("You turned off the light");
     }
 
 
