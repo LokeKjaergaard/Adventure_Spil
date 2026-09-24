@@ -50,7 +50,7 @@ public class Room {
         if (getWest() != null) {
             if (doors.isEmpty()) {
                 doors += "west";
-            } else doors += "and west";
+            } else doors += " and west";
 
         }
 
@@ -125,4 +125,8 @@ public class Room {
     public void turnOffLight() {
         isDark = false;
     }
+
+
+
+
 }

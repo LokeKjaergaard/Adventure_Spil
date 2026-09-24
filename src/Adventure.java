@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Adventure {
-    public static void start(){
+    public static void start() {
         Room room1 = new Room("Room 1", "The entrance to the abandoned building.", false);
         Room room2 = new Room("Room 2", "An old office with a desk and some documents.", false);
         Room room3 = new Room("Room 3", "A meeting room with notes left on the board.", false);
@@ -46,14 +46,10 @@ public class Adventure {
         Scanner scanner = new Scanner(System.in);
         String input;
 
-
-        Room next = null;
-
-
         while (true) {
             // Room info
 
-            if (!currentRoom.isVisited()){
+            if (!currentRoom.isVisited()) {
                 System.out.println("You are in " + currentRoom.getName() + ", " + currentRoom.getDescription());
                 currentRoom.makeVisited();
             } else System.out.println("You are in " + currentRoom.getName());
@@ -61,34 +57,10 @@ public class Adventure {
 
             // Await player input
             System.out.println();
-            System.out.print("What do you want to do?");
+            System.out.print("What do you want to do? ");
             input = scanner.nextLine();
 
-            // Check player input and do action
-            if (input.equalsIgnoreCase("Go east")) {
-                next = currentRoom.getEast();
-                if (next != null) {
-                    currentRoom = next;
-                } else System.out.println("You cannot go that way!");
-            }
-            else if (input.equalsIgnoreCase("Go west")) {
-                next = currentRoom.getWest();
-                if (next != null) {
-                    currentRoom = next;
-                } else System.out.println("You cannot go that way!");
-            }
-            else if (input.equalsIgnoreCase("Go north")) {
-                next = currentRoom.getNorth();
-                if (next != null) {
-                    currentRoom = next;
-                } else System.out.println("You cannot go that way!");
-
-            } else if (input.equalsIgnoreCase("Go south")) {
-                next = currentRoom.getSouth();
-                if (next != null) {
-                    currentRoom = next;
-                } else System.out.println("You cannot go that way!");
-
+            next = null;
             switch (input.toLowerCase()) {
                 case "go north":
                     next = currentRoom.getNorth();
@@ -115,15 +87,16 @@ public class Adventure {
                     break;
 
                 default:
-                    System.out.println("That direction is not possible");
+                    System.out.println("That direction is not possible ");
                     break;
 
             }
 
             if (next != null) {
                 currentRoom = next;
-            } else System.out.println("You cannot go that way!");
+            } else System.out.println("You cannot go that way! ");
 
-            }
         }
     }
+}
+
