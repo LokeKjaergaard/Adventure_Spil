@@ -46,7 +46,7 @@ public class Adventure {
                 System.out.println("You are in " + currentRoom.getName() + ", " + currentRoom.getDescription());
                 currentRoom.makeVisited();
             } else System.out.println("You are in " + currentRoom.getName());
-                currentRoom.printConnectedRooms();
+            currentRoom.printConnectedRooms();
 
             // Await player input
             System.out.println();
