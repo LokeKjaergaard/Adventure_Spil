@@ -47,13 +47,19 @@ public class Adventure {
         String input;
 
         while (true) {
+            // Room info
             if (!currentRoom.isVisited()){
                 System.out.println("You are in " + currentRoom.getName() + ", " + currentRoom.getDescription());
                 currentRoom.makeVisited();
             } else System.out.println("You are in " + currentRoom.getName());
+            currentRoom.printConnectedRooms();
 
-
+            // Await player input
+            System.out.println();
+            System.out.print("What do you want to do?");
             input = scanner.nextLine();
+
+            // Check player input and do action
             if (input.equalsIgnoreCase("Go east")) {
                 next = currentRoom.getEast();
                 if (next != null) {
@@ -81,8 +87,9 @@ public class Adventure {
             } else if (input.equalsIgnoreCase("help")){
                 UserInterface.printHelp();
             } else if (input.equalsIgnoreCase("look")){
-                System.out.println(currentRoom.getDescription());
+                UserInterface.printRoomDescription(currentRoom);
             } else if (input.equalsIgnoreCase("exit")){
+                System.out.println("Goodbye!");
                 break;
             }
         }
