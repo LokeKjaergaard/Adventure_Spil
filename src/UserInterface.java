@@ -9,4 +9,8 @@ public class UserInterface {
         System.out.println("- Look - Describe the current room");
         System.out.println("- Exit - End game");
     }
+
+    public static void printRoomDescription(Room room){
+        System.out.println(room.getDescription());
+    }
 }
