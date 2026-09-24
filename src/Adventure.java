@@ -1,3 +1,4 @@
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Adventure {
@@ -13,7 +14,6 @@ public class Adventure {
         Room room9 = new Room("Room 9", "An empty room with a strange map of the building.");
 
         Room currentRoom = room1;
-        Room next;
 
 
         room1.setEast(room2);
@@ -46,45 +46,55 @@ public class Adventure {
         Scanner scanner = new Scanner(System.in);
         String input;
 
+
+        Room next = null;
+
+
         while (true) {
+
             if (!currentRoom.isVisited()){
                 System.out.println("You are in " + currentRoom.getName() + ", " + currentRoom.getDescription());
                 currentRoom.makeVisited();
             } else System.out.println("You are in " + currentRoom.getName());
 
-
             input = scanner.nextLine();
-            if (input.equalsIgnoreCase("Go east")) {
-                next = currentRoom.getEast();
-                if (next != null) {
-                    currentRoom = next;
-                } else System.out.println("You cannot go that way!");
-            }
-            else if (input.equalsIgnoreCase("Go west")) {
-                next = currentRoom.getWest();
-                if (next != null) {
-                    currentRoom = next;
-                } else System.out.println("You cannot go that way!");
-            }
-            else if (input.equalsIgnoreCase("Go north")) {
-                next = currentRoom.getNorth();
-                if (next != null) {
-                    currentRoom = next;
-                } else System.out.println("You cannot go that way!");
 
-            } else if (input.equalsIgnoreCase("Go south")) {
-                next = currentRoom.getSouth();
-                if (next != null) {
-                    currentRoom = next;
-                } else System.out.println("You cannot go that way!");
+            switch (input.toLowerCase()) {
+                case "go north":
+                    next = currentRoom.getNorth();
+                    break;
+                case "go south":
+                    next = currentRoom.getSouth();
+                    break;
 
-            } else if (input.equalsIgnoreCase("help")){
-                UserInterface.printHelp();
-            } else if (input.equalsIgnoreCase("look")){
-                System.out.println(currentRoom.getDescription());
-            } else if (input.equalsIgnoreCase("exit")){
-                break;
+                case "go east":
+                    next = currentRoom.getEast();
+                    break;
+
+                case "go west":
+                    next = currentRoom.getWest();
+                    break;
+                case "help":
+                    UserInterface.printHelp();
+                    break;
+                case "look":
+                    System.out.println(currentRoom.getDescription());
+                    break;
+
+                case "exit":
+                    break;
+
+                default:
+                    System.out.println("That direction is not possible");
+                    break;
+
+            }
+
+            if (next != null) {
+                currentRoom = next;
+            } else System.out.println("You cannot go that way!");
+
             }
         }
     }
-}
+
