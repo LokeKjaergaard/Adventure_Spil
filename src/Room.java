@@ -16,7 +16,7 @@ public class Room {
     private boolean isRoomWLocked;
     private boolean isRoomELocked;
 
-    public Room (String name, String description){
+    public Room(String name, String description) {
         this.name = name;
         this.description = description;
     }
@@ -83,18 +83,22 @@ public class Room {
 
     public void setEast(Room east) {
         this.east = east;
+        east.west = this;
     }
 
     public void setNorth(Room north) {
         this.north = north;
+        north.south = this;
     }
 
     public void setSouth(Room south) {
         this.south = south;
+        south.north = this;
     }
 
     public void setWest(Room west) {
         this.west = west;
+        west.east = this;
     }
 
     public void setName(String name) {
@@ -112,4 +116,5 @@ public class Room {
     public boolean isVisited() {
         return hasVisited;
     }
+
 }
