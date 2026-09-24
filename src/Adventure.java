@@ -19,12 +19,9 @@ public class Adventure {
         room1.setEast(room2);
         room1.setSouth(room4);
 
-
         room2.setEast(room3);
 
-
         room3.setSouth(room6);
-
 
         room4.setSouth(room7);
 
@@ -39,8 +36,11 @@ public class Adventure {
         Scanner scanner = new Scanner(System.in);
         String input;
 
+
         while (true) {
             // Room info
+
+            boolean roomChanged = false;
 
             if (!currentRoom.isVisited()) {
                 System.out.println("You are in " + currentRoom.getName() + ", " + currentRoom.getDescription());
@@ -62,7 +62,6 @@ public class Adventure {
                 case "go south":
                     next = currentRoom.getSouth();
                     break;
-
                 case "go east":
                     next = currentRoom.getEast();
                     break;
@@ -70,14 +69,12 @@ public class Adventure {
                 case "go west":
                     next = currentRoom.getWest();
                     break;
-
                 case "turn on light":
                     currentRoom.turnOnLight();
                     break;
                 case "turn off light":
                     currentRoom.turnOffLight();
                     break;
-
                 case "help":
                     UserInterface.printHelp();
                     break;
@@ -94,8 +91,13 @@ public class Adventure {
             }
 
             if (next != null) {
+                roomChanged = true;
+            }
+
+            if (roomChanged) {
                 currentRoom = next;
-            } else System.out.println("You cannot go that way! ");
+            } else System.out.println("Thats not a valid direction");
+
 
         }
     }
