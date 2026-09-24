@@ -27,19 +27,19 @@ public class Room {
         String doors = "";
 
         // north is always the first possible value, we don't need to add a comma (,)
-        if (getNorth() != null) {
+        if (getNorth() != null && getNorth().isVisited()) {
             doors += "north";
         }
 
         // add a comma (,) if it's empty
-        if (getSouth() != null) {
+        if (getSouth() != null && getSouth().isVisited()) {
             if (doors.isEmpty()) {
                 doors += "south";
             } else doors += ", south";
 
         }
 
-        if (getEast() != null) {
+        if (getEast() != null && getEast().isVisited()) {
             if (doors.isEmpty()) {
                 doors += "east";
             } else doors += ", east";
@@ -47,15 +47,16 @@ public class Room {
         }
 
         // west is always the last value we can end the sentence with an "and" here.
-        if (getWest() != null) {
+        if (getWest() != null && getWest().isVisited()) {
             if (doors.isEmpty()) {
                 doors += "west";
             } else doors += " and west";
 
         }
 
-        // prints result.
-        System.out.println("There are doors to the: " + doors + ".");
+        if (doors.isEmpty()){
+            System.out.println("Possible directions unknown. Try to got different directions to find new rooms");
+        } else System.out.println("There are doors to the: " + doors + ".");
     }
 
     public String getName() {
