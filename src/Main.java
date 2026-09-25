@@ -19,6 +19,12 @@ public class Main {
    */
 
     static void main(String[] args) {
-        Adventure.start();
+
+        Map map = new Map();
+        map.setupMap();
+        Adventure.start(map);
+
+
+
     }
 }
