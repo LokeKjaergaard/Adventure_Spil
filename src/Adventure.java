@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Adventure {
     public static void start() {
         Room room1 = new Room("Room 1", "The entrance to the abandoned building.", false);
-        Room room2 = new Room("Room 2", "An old office with a desk and some documents.", false);
+        Room room2 = new Room("Room 2", "An old office with a desk and some documents.", true);
         Room room3 = new Room("Room 3", "A meeting room with notes left on the board.", false);
         Room room4 = new Room("Room 4", "An old kitchen that looks like it was left in a hurry.", false);
         Room room5 = new Room("Room 5", "A storage room filled with old boxes and equipment.", false);
@@ -14,6 +14,7 @@ public class Adventure {
 
         Room currentRoom = room1;
         Room next;
+        Room previousRoom = null;
 
 
         room1.setEast(room2);
@@ -39,14 +40,21 @@ public class Adventure {
 
         while (true) {
             // Room info
-
+            System.out.println();
             boolean roomChanged = false;
 
-            if (!currentRoom.isVisited()) {
-                System.out.println("You are in " + currentRoom.getName() + ", " + currentRoom.getDescription());
-                currentRoom.makeVisited();
-            } else System.out.println("You are in " + currentRoom.getName());
-            currentRoom.printConnectedRooms();
+            if (currentRoom.isDark()) {
+                System.out.println("The room is dark you cant see anything");
+                if (!currentRoom.isVisited()){
+                    currentRoom.makeVisited();
+                }
+            } else {
+                if (!currentRoom.isVisited()) {
+                    System.out.println("You are in " + currentRoom.getName() + ", " + currentRoom.getDescription());
+                    currentRoom.makeVisited();
+                } else System.out.println("You are in " + currentRoom.getName());
+                currentRoom.printConnectedRooms();
+            }
 
             // Await player input
             System.out.println();
@@ -55,20 +63,32 @@ public class Adventure {
             input = scanner.nextLine();
 
             next = null;
+            boolean triedToMove = false;
+            boolean goingBack = false;
             switch (input.toLowerCase()) {
                 case "go north":
+                    triedToMove = true;
                     next = currentRoom.getNorth();
                     break;
                 case "go south":
+                    triedToMove = true;
                     next = currentRoom.getSouth();
                     break;
                 case "go east":
+                    triedToMove = true;
                     next = currentRoom.getEast();
                     break;
 
                 case "go west":
+                    triedToMove = true;
                     next = currentRoom.getWest();
                     break;
+                case "go back":
+                    triedToMove = true;
+                    goingBack = true;
+                    next = previousRoom;
+                    break;
+
                 case "turn on light":
                     currentRoom.turnOnLight();
                     break;
@@ -91,13 +111,20 @@ public class Adventure {
                     break;
             }
 
-            if (next != null) {
-                roomChanged = true;
+            if (triedToMove) {
+                if (currentRoom.isDark() && !goingBack) {
+                    System.out.println("It's too dark to navigate. You can only go back.");
+                } else if (next == null) {
+                    System.out.println("That's not a valid direction");
+                } else {
+                    roomChanged = true;
+                }
             }
 
             if (roomChanged) {
+                previousRoom = currentRoom;
                 currentRoom = next;
-            } else System.out.println("Thats not a valid direction");
+            }
 
 
         }
