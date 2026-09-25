@@ -40,21 +40,8 @@ public class Adventure {
 
         while (true) {
             // Room info
-            System.out.println();
             boolean roomChanged = false;
-
-            if (currentRoom.isDark()) {
-                System.out.println("The room is dark you cant see anything");
-                if (!currentRoom.isVisited()){
-                    currentRoom.makeVisited();
-                }
-            } else {
-                if (!currentRoom.isVisited()) {
-                    System.out.println("You are in " + currentRoom.getName() + ", " + currentRoom.getDescription());
-                    currentRoom.makeVisited();
-                } else System.out.println("You are in " + currentRoom.getName());
-                currentRoom.printConnectedRooms();
-            }
+            UserInterface.printWelcome(currentRoom);
 
             // Await player input
             System.out.println();

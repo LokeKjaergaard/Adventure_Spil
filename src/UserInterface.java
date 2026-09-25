@@ -1,5 +1,6 @@
 public class UserInterface {
 
+
     public static void printHelp(){
         System.out.println("Possible commands:");
         System.out.println("- Go North");
@@ -15,5 +16,37 @@ public class UserInterface {
 
     public static void printRoomDescription(Room room){
         System.out.println(room.getDescription());
+    }
+
+    public static void printWelcome(Room room){
+        String text;
+
+        System.out.println();
+        if (room.isDark()) {
+            text = "The room is dark you cant see anything";
+            if (!room.isVisited()){
+                room.makeVisited();
+            }
+        } else {
+            if (!room.isVisited()) {
+                text = "You are in " + room.getName() + ", " + room.getDescription();
+                room.makeVisited();
+            } else text = "You are in " + room.getName();
+
+        }
+        generateBorder(text);
+    }
+
+    public static void generateBorder(String text){
+        String border = "";
+        int length = text.length();
+
+        for (int i = 0; i < length; i++){
+            border += "-";
+        }
+        border = ("*-" + border + "-*");
+        System.out.println(border);
+        System.out.println("| " + text + " |");
+        System.out.println(border);
     }
 }
