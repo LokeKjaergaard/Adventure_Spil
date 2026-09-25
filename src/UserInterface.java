@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class UserInterface {
 
 
@@ -48,5 +50,13 @@ public class UserInterface {
         System.out.println(border);
         System.out.println("| " + text + " |");
         System.out.println(border);
+    }
+    public static String awaitInput(Scanner scanner){
+        // Await player input
+        System.out.println();
+        System.out.println("What do you want to do?");
+        System.out.print(": ");
+        String input = scanner.nextLine();
+        return input;
     }
 }

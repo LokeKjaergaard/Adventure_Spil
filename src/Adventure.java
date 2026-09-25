@@ -12,11 +12,7 @@ public class Adventure {
             boolean roomChanged = false;
             UserInterface.printWelcome(map.getCurrentRoom());
 
-            // Await player input
-            System.out.println();
-            System.out.println("What do you want to do?");
-            System.out.print(": ");
-            input = scanner.nextLine();
+            input = UserInterface.awaitInput(scanner);
 
             map.setNext(null);
 
