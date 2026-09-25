@@ -3,18 +3,21 @@ public class Map {
     private Room currentRoom;
     private Room next;
     private Room previousRoom = null;
+    private Room xyzzy = null;
+
+    private Room room1 = new Room("Room 1", "The entrance to the abandoned building.", false);
+    private Room room2 = new Room("Room 2", "An old office with a desk and some documents.", true);
+    private Room room3 = new Room("Room 3", "A meeting room with notes left on the board.", false);
+    private Room room4 = new Room("Room 4", "An old kitchen that looks like it was left in a hurry.", false);
+    private Room room5 = new Room("Room 5", "A storage room filled with old boxes and equipment.", false);
+    private Room room6 = new Room("Room 6", "A technical room with old machines and electrical panels.", false);
+    private Room room7 = new Room("Room 7", "An archive containing reports about an old incident.", false);
+    private Room room8 = new Room("Room 8", "A break room with a few personal belongings left behind.", false);
+    private Room room9 = new Room("Room 9", "An empty room with a strange map of the building.", false);
 
     public void setupMap() {
 
-        Room room1 = new Room("Room 1", "The entrance to the abandoned building.", false);
-        Room room2 = new Room("Room 2", "An old office with a desk and some documents.", true);
-        Room room3 = new Room("Room 3", "A meeting room with notes left on the board.", false);
-        Room room4 = new Room("Room 4", "An old kitchen that looks like it was left in a hurry.", false);
-        Room room5 = new Room("Room 5", "A storage room filled with old boxes and equipment.", false);
-        Room room6 = new Room("Room 6", "A technical room with old machines and electrical panels.", false);
-        Room room7 = new Room("Room 7", "An archive containing reports about an old incident.", false);
-        Room room8 = new Room("Room 8", "A break room with a few personal belongings left behind.", false);
-        Room room9 = new Room("Room 9", "An empty room with a strange map of the building.", false);
+
 
         currentRoom = room1;
 
@@ -62,4 +65,17 @@ public class Map {
         previousRoom = room;
 
     }
+
+    public Room getXyzzy() {
+        return xyzzy;
+    }
+
+    public void setXyzzy(Room room) {
+        this.xyzzy = room;
+    }
+
+    public Room getRoom1(){
+        return room1;
+    }
 }
+

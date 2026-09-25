@@ -47,17 +47,17 @@ public class Adventure {
                     break;
 
                 case "xyzzy":
-                    if(lastXyzzyRoom == null) {
+                    if(map.getXyzzy() == null) {
                         triedToMove = true;
-                        lastXyzzyRoom = currentRoom;
-                        setNext(room1);
+                        map.setXyzzy(map.getCurrentRoom());
+                        map.setNext(map.getRoom1());
                         break;
 
                     }
                     else {
                         triedToMove = true;
-                        map.setNext(lastXyzzyRoom);
-                        lastXyzzyRoom = map.getCurrentRoom();
+                        map.setNext(map.getXyzzy());
+                        map.setXyzzy(map.getCurrentRoom());
                         break;
                     }
 
