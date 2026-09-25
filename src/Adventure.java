@@ -79,7 +79,7 @@ public class Adventure {
                     UserInterface.printHelp();
                     break;
                 case "look":
-                    System.out.println(currentRoom.getDescription());
+                    UserInterface.printRoomDescription(currentRoom);
                     break;
                 case "exit":
 
