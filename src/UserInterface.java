@@ -6,6 +6,9 @@ public class UserInterface {
         System.out.println("- Go South");
         System.out.println("- Go West");
         System.out.println("- Go East");
+        System.out.println("- Go back - goes back to the previous room you just were in");
+        System.out.println("- Turn on light - turns on the light in the current room");
+        System.out.println("- Turn off light - turns off the light in the current room");
         System.out.println("- Look - Describe the current room");
         System.out.println("- Exit - End game");
     }
