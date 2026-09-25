@@ -10,7 +10,7 @@ public class Adventure {
         while (true) {
             // Room info
             boolean roomChanged = false;
-            UserInterface.printWelcome(map.getCurrentRoom);
+            UserInterface.printWelcome(map.getCurrentRoom());
 
             // Await player input
             System.out.println();
@@ -56,7 +56,7 @@ public class Adventure {
                     UserInterface.printHelp();
                     break;
                 case "look":
-                    UserInterface.printRoomDescription(currentRoom);
+                    UserInterface.printRoomDescription(map.getCurrentRoom());
                     break;
                 case "exit":
 
