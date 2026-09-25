@@ -15,7 +15,7 @@ public class Adventure {
         Room currentRoom = room1;
         Room next;
         Room previousRoom = null;
-
+        Room lastXyzzyRoom = null;
 
         room1.setEast(room2);
         room1.setSouth(room4);
@@ -88,6 +88,23 @@ public class Adventure {
                     goingBack = true;
                     next = previousRoom;
                     break;
+
+                case "xyzzy":
+                    if(lastXyzzyRoom == null) {
+                        triedToMove = true;
+                        lastXyzzyRoom = currentRoom;
+                        next = room1;
+                        break;
+
+                    }
+                    else {
+                        triedToMove = true;
+                        next = lastXyzzyRoom;
+                        lastXyzzyRoom = currentRoom;
+                        break;
+                    }
+
+
 
                 case "turn on light":
                     currentRoom.turnOnLight();
