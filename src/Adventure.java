@@ -76,8 +76,32 @@ public class Adventure {
                 case "help":
                     UserInterface.printHelp();
                     break;
-                case "Take":
-                    System.out.println("Take is todo");
+                case "take":
+                    String itemName = UserInterface.awaitInput(scanner, "Write the name of the item you want to take.");
+                    boolean found = false;
+                    if (itemName.isEmpty()){
+                        System.out.println("Invalid input");
+                        break;
+                    } else {
+                        int size = player.getCurrentRoom().getRoomItems().size();
+                        for (int i = 0; i < size; i++){
+                            Item roomItem = player.getCurrentRoom().getRoomItems().get(i);
+                            if (roomItem.getShortName().equals(itemName)) {
+                                player.addItem(roomItem);
+                                player.getCurrentRoom().removeItem(roomItem);
+                                found = true;
+                                break;
+                            }
+                        }
+                        if (!found){
+                            System.out.println("That item is not in this room");
+                        } else {
+                            System.out.println("You took the item");
+                        }
+                        break;
+                    }
+
+
                 case "look":
                     UserInterface.printRoomDescription(player.getCurrentRoom());
                     break;
