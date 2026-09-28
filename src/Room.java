@@ -7,6 +7,7 @@ public class Room {
     private String description;
     private boolean hasVisited = false;
     private boolean isDark;
+    private ArrayList<Item> roomItems = new ArrayList<>();
 
     // neighboring rooms
     private Room north;
@@ -20,10 +21,11 @@ public class Room {
     private boolean isRoomWLocked;
     private boolean isRoomELocked;
 
-    public Room (String name, String description, boolean isDark) {
+    public Room (String name, String description, boolean isDark /*ArrayList<Item> roomItems*/ ) {
         this.name = name;
         this.description = description;
         this.isDark = isDark;
+        //this.roomItems = roomItems;
     }
 
     public void printConnectedRooms() {
@@ -40,14 +42,12 @@ public class Room {
             if (doors.isEmpty()) {
                 doors += "south";
             } else doors += ", south";
-
         }
 
         if (getEast() != null && getEast().isVisited()) {
             if (doors.isEmpty()) {
                 doors += "east";
             } else doors += ", east";
-
         }
 
         // west is always the last value we can end the sentence with an "and" here.
@@ -139,6 +139,19 @@ public class Room {
         System.out.println("You turned off the light");
     }
 
+    public void addItem (Item item){
+        roomItems.add(item);
+
+    }
+
+    public void removeItem(Item item) {
+        if (!roomItems.isEmpty()) {
+            if (roomItems.contains(item)) {
+                roomItems.remove(item);
+            } else System.out.println("Item: '" + item.getLongName() + "' is not in the current room");
+
+        } else System.out.println("The current room is empty");
+    }
 
 
 
