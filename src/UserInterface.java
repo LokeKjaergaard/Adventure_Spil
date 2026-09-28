@@ -2,6 +2,9 @@ import java.util.Scanner;
 
 public class UserInterface {
 
+    public UserInterface() {
+
+    }
 
     public static void printHelp(){
         System.out.println("Possible commands:");
@@ -51,12 +54,11 @@ public class UserInterface {
         System.out.println("| " + text + " |");
         System.out.println(border);
     }
-    public static String awaitInput(Scanner scanner){
+    public static String awaitInput(Scanner scanner, String text){
         // Await player input
         System.out.println();
-        System.out.println("What do you want to do?");
-        System.out.print(": ");
-        String input = scanner.nextLine();
-        return input;
+        System.out.println(text);
+        System.out.print("> ");
+        return scanner.nextLine();
     }
 }
