@@ -23,7 +23,18 @@ public class Map {
 
     public void setupMap() {
 
-
+        Item Gun = new Item(
+                "Gun",
+                "A Sniper riffle"
+        );
+        Item lamp = new Item(
+                "lamp",
+                "a shiny brass lamp"
+        );
+        Item clothes = new Item(
+                "Shoes",
+                "Shiny shoes"
+        );
 
         currentRoom = room1;
 
