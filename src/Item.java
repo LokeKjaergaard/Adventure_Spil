@@ -1,25 +1,11 @@
 import java.util.ArrayList;
 
-
 public class Item {
 
     private String shortName;
     private String longName;
 
-    Item Gun = new Item(
-      "Gun",
-      "A Sniper riffle"
-    );
-    Item lamp = new Item(
-            "lamp",
-            "a shiny brass lamp"
-    );
-    Item clothes = new Item(
-            "Shoes",
-            "Shiny shoes"
-    );
-
-    public Item(String shortName, String longName ) {
+    public Item(String shortName, String longName) {
         this.shortName = shortName;
         this.longName = longName;
     }
@@ -28,19 +14,17 @@ public class Item {
         return shortName;
     }
 
-    public String getLongName(){
+    public String getLongName() {
         return longName;
     }
 
     public void setShortName() {
-
+        //todo
     }
 
-    public void setLongName(){
-
+    public void setLongName() {
+        //todo
     }
-
-    ArrayList<String> roomItems = new ArrayList<>();
 
 
 }
