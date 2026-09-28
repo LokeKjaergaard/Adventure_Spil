@@ -76,6 +76,8 @@ public class Adventure {
                 case "help":
                     UserInterface.printHelp();
                     break;
+                case "Take":
+                    System.out.println("Take is todo");
                 case "look":
                     UserInterface.printRoomDescription(player.getCurrentRoom());
                     break;
