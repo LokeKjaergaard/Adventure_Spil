@@ -20,7 +20,7 @@ public class Adventure {
             boolean roomChanged = false;
             UserInterface.printWelcome(map.getCurrentRoom());
 
-            input = UserInterface.awaitInput(scanner);
+            input = UserInterface.awaitInput(scanner, "What do you want to do?");
 
             map.setNext(null);
 
