@@ -17,7 +17,7 @@ public class UserInterface {
     }
 
     public static void printRoomDescription(Room room){
-        System.out.println(room.getDescription());
+        System.out.println("You look around the room. It looks like: " + room.getDescription());
     }
 
     public static void printWelcome(Room room){
