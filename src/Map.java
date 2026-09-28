@@ -14,6 +14,12 @@ public class Map {
     private Room room7 = new Room("Room 7", "An archive containing reports about an old incident.", false);
     private Room room8 = new Room("Room 8", "A break room with a few personal belongings left behind.", false);
     private Room room9 = new Room("Room 9", "An empty room with a strange map of the building.", false);
+    private Room room10 = new Room("Room 10", "A dark corridor with strange writings on the walls", true);
+    private Room room11 = new Room("Room 11", "A small laboratory filled with old chemicals", false);
+    private Room room12 = new Room("room 12", "A security room with old moniters and flickering lights", true);
+    private Room room13 = new Room("Room 13", "A dark storage with old and run-down furniture", true);
+    private Room room14 = new Room("Room 14", "A small, worn bathroom with a dripping faucet", false);
+    private Room room15 = new Room("Room 15", "A large room with an old wooden bed placed in the middle", false);
 
     public void setupMap() {
 
@@ -37,18 +43,47 @@ public class Map {
         room1.setSouth(room4);
 
         room2.setEast(room3);
+        room2.setWest(room1);
 
         room3.setSouth(room6);
+        room3.setWest(room2);
 
         room4.setSouth(room7);
+        room4.setNorth(room1);
 
         room5.setSouth(room8);
 
         room6.setSouth(room9);
+        room6.setNorth(room3);
 
         room7.setEast(room8);
+        room7.setNorth(room4);
 
         room8.setEast(room9);
+        room8.setWest(room7);
+        room8.setNorth(room5);
+
+        room9.setSouth(room10);
+        room9.setNorth(room6);
+
+        room10.setEast(room11);
+        room10.setNorth(room9);
+
+        room11.setNorth(room12);
+        room11.setSouth(room15);
+        room11.setEast(room13);
+        room11.setWest(room10);
+
+        room12.setSouth(room11);
+
+        room13.setSouth(room14);
+        room13.setWest(room11);
+
+        room14.setNorth(room13);
+        room14.setWest(room15);
+
+        room15.setNorth(room11);
+        room15.setEast(room14);
 
     }
 

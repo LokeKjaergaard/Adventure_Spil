@@ -6,7 +6,15 @@ public class Adventure {
         Scanner scanner = new Scanner(System.in);
         String input;
 
+        Player player = new Player("John Doe", map.getRoom1());
 
+        Item item1 = new Item("test", "this is a test");
+        Item item2 = new Item("another", "another item");
+
+        player.addItem(item1);
+        player.removeItem(item2);
+
+        System.out.println("Hello " + player.getName() + "!");
         while (true) {
             // Room info
             boolean roomChanged = false;
@@ -21,20 +29,20 @@ public class Adventure {
             switch (input.toLowerCase()) {
                 case "go north":
                     triedToMove = true;
-                    map.setNext(map.getCurrentRoom().getNorth());
+                    map.setNext(player.getCurrentRoom().getNorth());
                     break;
                 case "go south":
                     triedToMove = true;
-                    map.setNext(map.getCurrentRoom().getSouth());
+                    map.setNext(player.getCurrentRoom().getSouth());
                     break;
                 case "go east":
                     triedToMove = true;
-                    map.setNext(map.getCurrentRoom().getEast());
+                    map.setNext(player.getCurrentRoom().getEast());
                     break;
 
                 case "go west":
                     triedToMove = true;
-                    map.setNext(map.getCurrentRoom().getWest());
+                    map.setNext(player.getCurrentRoom().getWest());
                     break;
                 case "go back":
                     triedToMove = true;
@@ -60,29 +68,32 @@ public class Adventure {
 
 
                 case "turn on light":
-                    map.getCurrentRoom().turnOnLight();
+                    player.getCurrentRoom().turnOnLight();
                     break;
                 case "turn off light":
-                    map.getCurrentRoom().turnOffLight();
+                    player.getCurrentRoom().turnOffLight();
                     break;
                 case "help":
                     UserInterface.printHelp();
                     break;
                 case "look":
-                    UserInterface.printRoomDescription(map.getCurrentRoom());
+                    UserInterface.printRoomDescription(player.getCurrentRoom());
                     break;
                 case "exit":
 
                     System.out.println("Goodbye!");
                     return;
 
+
+
                 default:
                     System.out.println("Invalid command!");
                     break;
+
             }
 
             if (triedToMove) {
-                if (map.getCurrentRoom().isDark() && !goingBack) {
+                if (player.getCurrentRoom().isDark() && !goingBack) {
                     System.out.println("It's too dark to navigate. You can only go back.");
                 } else if (map.getNext() == null) {
                     System.out.println("That's not a valid direction");
@@ -94,6 +105,7 @@ public class Adventure {
             if (roomChanged) {
                 map.setPreviousRoom(map.getCurrentRoom());
                 map.setCurrentRoom(map.getNext());
+                player.setCurrentRoom(map.getNext());
             }
 
 
