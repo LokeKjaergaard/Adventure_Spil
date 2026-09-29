@@ -4,10 +4,12 @@ public class Item {
 
     private String shortName;
     private String longName;
+    private int weight;
 
-    public Item(String shortName, String longName) {
+    public Item(String shortName, String longName, int weight) {
         this.shortName = shortName;
         this.longName = longName;
+        this.weight = weight;
     }
 
     public String getShortName() {
@@ -26,5 +28,8 @@ public class Item {
         //todo
     }
 
+    public int getWeight() {
+        return weight;
+    }
 
 }
