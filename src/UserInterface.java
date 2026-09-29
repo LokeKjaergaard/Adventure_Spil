@@ -46,7 +46,7 @@ public class UserInterface {
         printRoomItems(room);
     }
 
-    public static void generateBorder(String text){
+    public void generateBorder(String text){
         String border = "";
         int length = text.length();
 
