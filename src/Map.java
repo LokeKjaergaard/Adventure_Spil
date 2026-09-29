@@ -21,6 +21,11 @@ public class Map {
     private Room room14 = new Room("Room 14", "A small, worn bathroom with a dripping faucet", false);
     private Room room15 = new Room("Room 15", "A large room with an old wooden bed placed in the middle", false);
 
+
+
+    Item item1 = new Item("test", "this is a test");
+    Item item2 = new Item("another", "another item");
+
     public void setupMap() {
 
         Item Gun = new Item(
@@ -38,7 +43,7 @@ public class Map {
 
         currentRoom = room1;
 
-
+        room1.addItem(item1);
         room1.setEast(room2);
         room1.setSouth(room4);
 
