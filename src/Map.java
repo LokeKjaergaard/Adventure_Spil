@@ -30,15 +30,18 @@ public class Map {
 
         Item Gun = new Item(
                 "Gun",
-                "A Sniper riffle"
+                "A Sniper riffle",
+                4
         );
         Item lamp = new Item(
                 "lamp",
-                "a shiny brass lamp"
+                "a shiny brass lamp",
+                1
         );
         Item clothes = new Item(
                 "Shoes",
-                "Shiny shoes"
+                "Shiny shoes",
+                2
         );
 
         currentRoom = room1;
