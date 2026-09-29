@@ -12,10 +12,13 @@ public class Adventure {
         Item item1 = new Item("test", "this is a test");
         Item item2 = new Item("another", "another item");
 
+
+        System.out.println("=== TESTING ===");
         player.addItem(item1);
         player.removeItem(item2);
 
         System.out.println("Hello " + player.getName() + "!");
+        System.out.println("= END TESTING =");
         while (true) {
             // Room info
             boolean roomChanged = false;
