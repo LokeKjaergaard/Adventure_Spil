@@ -9,15 +9,12 @@ public class Adventure {
 
         Player player = new Player("John Doe", map.getRoom1());
 
-        Item item1 = new Item("test", "this is a test");
-        Item item2 = new Item("another", "another item");
 
 
         System.out.println("=== TESTING ===");
-        player.addItem(item1);
-        player.removeItem(item2);
 
-        System.out.println("Hello " + player.getName() + "!");
+
+
         System.out.println("= END TESTING =");
         while (true) {
             // Room info
@@ -55,20 +52,18 @@ public class Adventure {
                     break;
 
                 case "xyzzy":
-                    if(map.getXyzzy() == null) {
+                    if (map.getXyzzy() == null) {
                         triedToMove = true;
                         map.setXyzzy(map.getCurrentRoom());
                         map.setNext(map.getRoom1());
                         break;
 
-                    }
-                    else {
+                    } else {
                         triedToMove = true;
                         map.setNext(map.getXyzzy());
                         map.setXyzzy(map.getCurrentRoom());
                         break;
                     }
-
 
 
                 case "turn on light":
@@ -80,65 +75,54 @@ public class Adventure {
                 case "help":
                     ui.printHelp();
                     break;
+                case "inventory":
+                    ui.listItems(player.getItems(), "your inventory");
                 case "take":
                     String itemName = UserInterface.awaitInput(scanner, "Write the name of the item you want to take.");
-                    boolean found = false;
-                    if (itemName.isEmpty()){
+                    if (itemName.isEmpty()) {
                         System.out.println("Invalid input");
                     } else {
-                        int size = player.getCurrentRoom().getRoomItems().size();
-                        for (int i = 0; i < size; i++){
-                            Item roomItem = player.getCurrentRoom().getRoomItems().get(i);
-                            if (roomItem.getShortName().equals(itemName)) {
-                                player.addItem(roomItem);
-                                player.getCurrentRoom().removeItem(roomItem);
-                                found = true;
-                                break;
-                            }
-                        }
-                        if (!found){
-                            System.out.println("That item is not in this room");
-                        } else {
+                        Item item = player.getCurrentRoom().findItemByShortName(itemName);
+                        if (item != null) {
+                            player.addItem(item, player.getCurrentRoom());
                             System.out.println("You took the item");
-                        }
-                        break;
+                        } else System.out.println("That item is not in this room");
                     }
-
-
-                case "look":
-                    ui.printRoomDescription(player.getCurrentRoom());
-                    break;
-                case "exit":
-
-                    System.out.println("Goodbye!");
-                    return;
-
-
-
-                default:
-                    System.out.println("Invalid command!");
                     break;
 
-            }
+            case "look":
+                ui.printRoomDescription(player.getCurrentRoom());
+                break;
+            case "exit":
 
-            if (triedToMove) {
-                if (player.getCurrentRoom().isDark() && !goingBack) {
-                    System.out.println("It's too dark to navigate. You can only go back.");
-                } else if (map.getNext() == null) {
-                    System.out.println("That's not a valid direction");
-                } else {
-                    roomChanged = true;
-                }
-            }
+                System.out.println("Goodbye!");
+                return;
 
-            if (roomChanged) {
-                map.setPreviousRoom(map.getCurrentRoom());
-                map.setCurrentRoom(map.getNext());
-                player.setCurrentRoom(map.getNext());
-            }
 
+            default:
+                System.out.println("Invalid command!");
+                break;
 
         }
+
+        if (triedToMove) {
+            if (player.getCurrentRoom().isDark() && !goingBack) {
+                System.out.println("It's too dark to navigate. You can only go back.");
+            } else if (map.getNext() == null) {
+                System.out.println("That's not a valid direction");
+            } else {
+                roomChanged = true;
+            }
+        }
+
+        if (roomChanged) {
+            map.setPreviousRoom(map.getCurrentRoom());
+            map.setCurrentRoom(map.getNext());
+            player.setCurrentRoom(map.getNext());
+        }
+
+
     }
+}
 }
 
