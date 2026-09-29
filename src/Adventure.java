@@ -1,10 +1,24 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Adventure {
     public static void start(Map map) {
 
+
+
         Scanner scanner = new Scanner(System.in);
         String input;
+
+        Item Gun = new Item("Gun","A Sniper riffle");
+        Item lamp = new Item("lamp","a shiny brass lamp");
+        Item clothes = new Item("Shoes", "Shiny shoe");
+
+        ArrayList<Item> possibleRoomItems = new ArrayList<>();
+            possibleRoomItems.add(Gun);
+            possibleRoomItems.add(lamp);
+            possibleRoomItems.add(clothes);
+
+        map.addRandomItems(possibleRoomItems);
 
         Player player = new Player("John Doe", map.getRoom1());
 

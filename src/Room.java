@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Room {
 
@@ -21,12 +22,14 @@ public class Room {
     private boolean isRoomWLocked;
     private boolean isRoomELocked;
 
-    public Room (String name, String description, boolean isDark /*ArrayList<Item> roomItems*/ ) {
+    public Room (String name, String description, boolean isDark) {
         this.name = name;
         this.description = description;
         this.isDark = isDark;
-        //this.roomItems = roomItems;
+
     }
+
+
 
     public void printConnectedRooms() {
         // holds the string of all possible directions.

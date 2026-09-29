@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Random;
+
 public class Map {
 
     private Room currentRoom;
@@ -5,7 +8,7 @@ public class Map {
     private Room previousRoom = null;
     private Room xyzzy = null;
 
-    private Room room1 = new Room("Room 1", "The entrance to the abandoned building.", false);
+    private Room room1 = new Room("Room 1", "The entrance to the abandoned building.", false );
     private Room room2 = new Room("Room 2", "An old office with a desk and some documents.", true);
     private Room room3 = new Room("Room 3", "A meeting room with notes left on the board.", false);
     private Room room4 = new Room("Room 4", "An old kitchen that looks like it was left in a hurry.", false);
@@ -21,22 +24,47 @@ public class Map {
     private Room room14 = new Room("Room 14", "A small, worn bathroom with a dripping faucet", false);
     private Room room15 = new Room("Room 15", "A large room with an old wooden bed placed in the middle", false);
 
+    ArrayList<Room> roomList = new ArrayList<Room>();
+    private void addRooms() {
+        roomList.add(room1);
+        roomList.add(room2);
+        roomList.add(room3);
+        roomList.add(room4);
+        roomList.add(room5);
+        roomList.add(room6);
+        roomList.add(room7);
+        roomList.add(room8);
+        roomList.add(room9);
+        roomList.add(room10);
+        roomList.add(room11);
+        roomList.add(room12);
+        roomList.add(room13);
+        roomList.add(room14);
+        roomList.add(room15);
+    }
+
+    Random random = new Random();
+
+    public void addRandomItems(ArrayList<Item> possibleItems) {
+        Random random = new Random();
+
+        for (Room room : roomList) {
+            for (int i = 0; i < possibleItems.size(); i++){
+                boolean b = random.nextBoolean();
+                if (b){
+                    Item item = possibleItems.get(i);
+                    room.addItem(item);
+                    //System.out.println(room.getName() + " fik: " + item.getShortName());
+                }
+            }
+        }
+    }
+
     public void setupMap() {
 
-        Item Gun = new Item(
-                "Gun",
-                "A Sniper riffle"
-        );
-        Item lamp = new Item(
-                "lamp",
-                "a shiny brass lamp"
-        );
-        Item clothes = new Item(
-                "Shoes",
-                "Shiny shoes"
-        );
 
-        currentRoom = room1;
+        addRooms();
+       currentRoom = room1;
 
 
         room1.setEast(room2);
@@ -84,6 +112,8 @@ public class Map {
 
         room15.setNorth(room11);
         room15.setEast(room14);
+
+
 
     }
 
