@@ -1,11 +1,9 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Adventure {
     public static void start(Map map) {
 
-
-
+        UserInterface ui = new UserInterface("UI 1");
         Scanner scanner = new Scanner(System.in);
         String input;
 
@@ -25,16 +23,19 @@ public class Adventure {
         Item item1 = new Item("test", "this is a test");
         Item item2 = new Item("another", "another item");
 
+
+        System.out.println("=== TESTING ===");
         player.addItem(item1);
         player.removeItem(item2);
 
         System.out.println("Hello " + player.getName() + "!");
+        System.out.println("= END TESTING =");
         while (true) {
             // Room info
             boolean roomChanged = false;
-            UserInterface.printWelcome(map.getCurrentRoom());
+            ui.printWelcome(map.getCurrentRoom());
 
-            input = UserInterface.awaitInput(scanner);
+            input = UserInterface.awaitInput(scanner, "What do you want to do?");
 
             map.setNext(null);
 

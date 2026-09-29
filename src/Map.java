@@ -62,6 +62,21 @@ public class Map {
 
     public void setupMap() {
 
+        Item Gun = new Item(
+                "Gun",
+                "A Sniper riffle",
+                4
+        );
+        Item lamp = new Item(
+                "lamp",
+                "a shiny brass lamp",
+                1
+        );
+        Item clothes = new Item(
+                "Shoes",
+                "Shiny shoes",
+                2
+        );
 
         addRooms();
        currentRoom = room1;
@@ -112,8 +127,6 @@ public class Map {
 
         room15.setNorth(room11);
         room15.setEast(room14);
-
-
 
     }
 

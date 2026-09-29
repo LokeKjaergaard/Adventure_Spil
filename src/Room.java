@@ -156,6 +156,10 @@ public class Room {
         } else System.out.println("The current room is empty");
     }
 
+    public ArrayList<Item> getRoomItems(){
+        return roomItems;
+    }
+
 
 
 }
