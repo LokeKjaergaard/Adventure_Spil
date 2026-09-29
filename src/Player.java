@@ -22,8 +22,9 @@ public class Player {
         this.currentRoom = currentRoom;
     }
 
-    public void addItem(Item item) {
+    public void addItem(Item item, Room room) {
         inventory.add(item);
+        room.removeItem(item);
     }
 
     public void removeItem(Item item) {
