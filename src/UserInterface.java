@@ -1,12 +1,14 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UserInterface {
+    private String name;
 
-    public UserInterface() {
-
+    public UserInterface(String name) {
+        this.name = name;
     }
 
-    public static void printHelp(){
+    public void printHelp(){
         System.out.println("Possible commands:");
         System.out.println("- Go North");
         System.out.println("- Go South");
@@ -19,11 +21,11 @@ public class UserInterface {
         System.out.println("- Exit - End game");
     }
 
-    public static void printRoomDescription(Room room){
+    public void printRoomDescription(Room room){
         System.out.println("You look around the room. It looks like: " + room.getDescription());
     }
 
-    public static void printWelcome(Room room){
+    public void printWelcome(Room room){
         String text;
 
         System.out.println();
@@ -40,6 +42,8 @@ public class UserInterface {
 
         }
         generateBorder(text);
+
+        printRoomItems(room);
     }
 
     public static void generateBorder(String text){
@@ -60,5 +64,15 @@ public class UserInterface {
         System.out.println(text);
         System.out.print("> ");
         return scanner.nextLine();
+    }
+
+    public void printRoomItems(Room room){
+        ArrayList<Item> list = room.getRoomItems();
+        int length = room.getRoomItems().size();
+
+        System.out.println("Items in this room:");
+        for (int i = 0; i < length; i++){
+            System.out.println("-" + list.get(i).getLongName());
+        }
     }
 }

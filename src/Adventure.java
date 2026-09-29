@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Adventure {
     public static void start(Map map) {
 
+        UserInterface ui = new UserInterface("UI 1");
         Scanner scanner = new Scanner(System.in);
         String input;
 
@@ -18,7 +19,7 @@ public class Adventure {
         while (true) {
             // Room info
             boolean roomChanged = false;
-            UserInterface.printWelcome(map.getCurrentRoom());
+            ui.printWelcome(map.getCurrentRoom());
 
             input = UserInterface.awaitInput(scanner, "What do you want to do?");
 
@@ -74,14 +75,13 @@ public class Adventure {
                     player.getCurrentRoom().turnOffLight();
                     break;
                 case "help":
-                    UserInterface.printHelp();
+                    ui.printHelp();
                     break;
                 case "take":
                     String itemName = UserInterface.awaitInput(scanner, "Write the name of the item you want to take.");
                     boolean found = false;
                     if (itemName.isEmpty()){
                         System.out.println("Invalid input");
-                        break;
                     } else {
                         int size = player.getCurrentRoom().getRoomItems().size();
                         for (int i = 0; i < size; i++){
@@ -103,7 +103,7 @@ public class Adventure {
 
 
                 case "look":
-                    UserInterface.printRoomDescription(player.getCurrentRoom());
+                    ui.printRoomDescription(player.getCurrentRoom());
                     break;
                 case "exit":
 
