@@ -73,7 +73,7 @@ public class UserInterface {
         if (!list.isEmpty()) {
             System.out.println("Items in this room:");
             for (int i = 0; i < length; i++){
-                System.out.println("-" + list.get(i).getLongName());
+                System.out.println("- " + list.get(i).getLongName());
             }
         } else System.out.println("There's nothing of note in this room.");
 
