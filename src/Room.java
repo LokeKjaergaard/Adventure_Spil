@@ -160,6 +160,8 @@ public class Room {
         return roomItems;
     }
 
-
+    public Item findItemByShortName(String shortName){
+        return Item.findItemByShortName(shortName, roomItems);
+    }
 
 }

@@ -8,7 +8,7 @@ public class Map {
     private Room previousRoom = null;
     private Room xyzzy = null;
 
-    private Room room1 = new Room("Room 1", "The entrance to the abandoned building.", false );
+    private Room room1 = new Room("Room 1", "The entrance to the abandoned building.", false);
     private Room room2 = new Room("Room 2", "An old office with a desk and some documents.", true);
     private Room room3 = new Room("Room 3", "A meeting room with notes left on the board.", false);
     private Room room4 = new Room("Room 4", "An old kitchen that looks like it was left in a hurry.", false);
@@ -23,6 +23,11 @@ public class Map {
     private Room room13 = new Room("Room 13", "A dark storage with old and run-down furniture", true);
     private Room room14 = new Room("Room 14", "A small, worn bathroom with a dripping faucet", false);
     private Room room15 = new Room("Room 15", "A large room with an old wooden bed placed in the middle", false);
+
+
+
+    Item item1 = new Item("test", "this is a test", 2);
+    Item item2 = new Item("another", "another item", 2);
 
     ArrayList<Room> roomList = new ArrayList<Room>();
     private void addRooms() {
@@ -81,7 +86,7 @@ public class Map {
         addRooms();
        currentRoom = room1;
 
-
+        room1.addItem(item1);
         room1.setEast(room2);
         room1.setSouth(room4);
 

@@ -43,7 +43,7 @@ public class UserInterface {
         }
         generateBorder(text);
 
-        printRoomItems(room);
+        listItems(room.getRoomItems(), "this room");
     }
 
     public void generateBorder(String text){
@@ -66,16 +66,15 @@ public class UserInterface {
         return scanner.nextLine();
     }
 
-    public void printRoomItems(Room room){
-        ArrayList<Item> list = room.getRoomItems();
-        int length = room.getRoomItems().size();
+    public void listItems(ArrayList<Item> listItems, String text){
+        int length = listItems.size();
 
-        if (!list.isEmpty()) {
-            System.out.println("Items in this room:");
+        if (!listItems.isEmpty()) {
+            System.out.println("Items in " + text + ".");
             for (int i = 0; i < length; i++){
-                System.out.println("- " + list.get(i).getLongName());
+                System.out.println("- " + listItems.get(i).getLongName());
             }
-        } else System.out.println("There's nothing of note in this room.");
+        } else System.out.println("There's nothing of note in " + text + ".");
 
     }
 }

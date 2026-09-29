@@ -23,9 +23,11 @@ public class Player {
         this.currentRoom = currentRoom;
     }
 
-    public void addItem(Item item) {
-        if (getCurrentWeight() + item.getWeight() <= maxCarry)
+    public void addItem(Item item, Room room) {
+        if (getCurrentWeight() + item.getWeight() <= maxCarry) {
             inventory.add(item);
+            room.removeItem(item);
+        }
         else {
             System.out.println("you are carrying too much drop something");
         }
@@ -43,6 +45,10 @@ public class Player {
 
     public ArrayList<Item> getItems() {
         return inventory;
+    }
+
+    public Item findItemByShortName(String shortName) {
+        return Item.findItemByShortName(shortName, inventory);
     }
 
     public int getCurrentWeight() {
