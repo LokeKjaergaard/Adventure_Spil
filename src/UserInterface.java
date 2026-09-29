@@ -70,9 +70,12 @@ public class UserInterface {
         ArrayList<Item> list = room.getRoomItems();
         int length = room.getRoomItems().size();
 
-        System.out.println("Items in this room:");
-        for (int i = 0; i < length; i++){
-            System.out.println("-" + list.get(i).getLongName());
-        }
+        if (!room.getRoomItems().isEmpty()) {
+            System.out.println("Items in this room:");
+            for (int i = 0; i < length; i++){
+                System.out.println("-" + list.get(i).getLongName());
+            }
+        } else System.out.println("There's nothing of note in this room.");
+
     }
 }
