@@ -23,8 +23,8 @@ public class Map {
 
 
 
-    Item item1 = new Item("test", "this is a test");
-    Item item2 = new Item("another", "another item");
+    Item item1 = new Item("test", "this is a test", 2);
+    Item item2 = new Item("another", "another item", 2);
 
     public void setupMap() {
 
