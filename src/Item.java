@@ -8,7 +8,6 @@ public class Item {
 
     public Item(String shortName, String longName, int weight) {
 
-    public Item(String shortName, String longName) {
         this.shortName = shortName;
         this.longName = longName;
         this.weight = weight;
@@ -35,3 +34,5 @@ public class Item {
     }
 
 }
+
+

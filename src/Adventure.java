@@ -7,9 +7,9 @@ public class Adventure {
         Scanner scanner = new Scanner(System.in);
         String input;
 
-        Item Gun = new Item("Gun","A Sniper riffle");
-        Item lamp = new Item("lamp","a shiny brass lamp");
-        Item clothes = new Item("Shoes", "Shiny shoe");
+        Item Gun = new Item("Gun","A Sniper riffle", 4);
+        Item lamp = new Item("lamp","a shiny brass lamp", 1);
+        Item clothes = new Item("Shoes", "Shiny shoe", 2);
 
         ArrayList<Item> possibleRoomItems = new ArrayList<>();
             possibleRoomItems.add(Gun);
@@ -89,10 +89,10 @@ public class Adventure {
                     player.getCurrentRoom().turnOffLight();
                     break;
                 case "help":
-                    UserInterface.printHelp();
+                    ui.printHelp();
                     break;
                 case "look":
-                    UserInterface.printRoomDescription(player.getCurrentRoom());
+                    ui.printRoomDescription(player.getCurrentRoom());
                     break;
                 case "exit":
 
