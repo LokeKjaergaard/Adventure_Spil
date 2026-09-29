@@ -10,9 +10,7 @@ public class Adventure {
         Player player = new Player("John Doe", map.getRoom1());
 
 
-
         System.out.println("=== TESTING ===");
-
 
 
         System.out.println("= END TESTING =");
@@ -77,11 +75,13 @@ public class Adventure {
                     break;
                 case "inventory":
                     ui.listItems(player.getItems(), "your inventory");
+                    break;
                 case "take":
                     String itemName = UserInterface.awaitInput(scanner, "Write the name of the item you want to take.");
                     if (itemName.isEmpty()) {
                         System.out.println("Invalid input");
                     } else {
+
                         Item item = player.getCurrentRoom().findItemByShortName(itemName);
                         if (item != null) {
                             player.addItem(item, player.getCurrentRoom());
@@ -89,40 +89,52 @@ public class Adventure {
                         } else System.out.println("That item is not in this room");
                     }
                     break;
+                case "drop":
+                    itemName = UserInterface.awaitInput(scanner, "Write the name of the item you want to drop.");
+                    if (itemName.isEmpty()) {
+                        System.out.println("Invalid input");
+                    } else {
+                        Item item = player.findItemByShortName(itemName);
+                        if (item != null) {
+                            player.addItem(item, player.getCurrentRoom());
+                            System.out.println("You took the item");
+                        } else System.out.println("That item is not in this room");
+                    }
+                    break;
+                case "look":
+                    ui.printRoomDescription(player.getCurrentRoom());
+                    break;
+                case "exit":
 
-            case "look":
-                ui.printRoomDescription(player.getCurrentRoom());
-                break;
-            case "exit":
-
-                System.out.println("Goodbye!");
-                return;
+                    System.out.println("Goodbye!");
+                    return;
 
 
-            default:
-                System.out.println("Invalid command!");
-                break;
+                default:
+                    System.out.println("Invalid command!");
+                    break;
 
-        }
-
-        if (triedToMove) {
-            if (player.getCurrentRoom().isDark() && !goingBack) {
-                System.out.println("It's too dark to navigate. You can only go back.");
-            } else if (map.getNext() == null) {
-                System.out.println("That's not a valid direction");
-            } else {
-                roomChanged = true;
             }
+
+            if (triedToMove) {
+                if (player.getCurrentRoom().isDark() && !goingBack) {
+                    System.out.println("It's too dark to navigate. You can only go back.");
+                } else if (map.getNext() == null) {
+                    System.out.println("That's not a valid direction");
+                } else {
+                    roomChanged = true;
+                }
+            }
+
+            if (roomChanged) {
+                map.setPreviousRoom(map.getCurrentRoom());
+                map.setCurrentRoom(map.getNext());
+                player.setCurrentRoom(map.getNext());
+            }
+
+
         }
-
-        if (roomChanged) {
-            map.setPreviousRoom(map.getCurrentRoom());
-            map.setCurrentRoom(map.getNext());
-            player.setCurrentRoom(map.getNext());
-        }
-
-
     }
-}
+
 }
 

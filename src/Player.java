@@ -39,4 +39,8 @@ public class Player {
     public ArrayList<Item> getItems() {
         return inventory;
     }
+
+    public Item findItemByShortName(String shortName) {
+        return Item.findItemByShortName(shortName, inventory);
+    }
 }

@@ -157,19 +157,8 @@ public class Room {
         return roomItems;
     }
 
-    public Item findItemByShortName(String itemShortName){
-        ArrayList<Item> list = roomItems;
-        int length = roomItems.size();
-
-        if (!list.isEmpty()) {
-            for (int i = 0; i < length; i++){
-                Item item = list.get(i);
-                if (item.getShortName().equals(itemShortName)){
-                    return item;
-                }
-            }
-        }
-        return null;
+    public Item findItemByShortName(String shortName){
+        return Item.findItemByShortName(shortName, roomItems);
     }
 
 }
