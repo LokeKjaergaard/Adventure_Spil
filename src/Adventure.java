@@ -120,8 +120,10 @@ public class Adventure {
                     }
 
                 case "health":
-                    Player.getHealth();
+                    ui.printPlayerHealth(player);
+                    break;
 
+                case "eat":
                     break;
                 case "look":
                     ui.printRoomDescription(player.getCurrentRoom());
