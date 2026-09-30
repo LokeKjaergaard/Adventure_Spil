@@ -50,6 +50,10 @@ public class Player {
         } else System.out.println("Your inventory is empty!");
     }
 
+    public void eat(Food food){
+        //todo
+    }
+
     public ArrayList<Item> getItems() {
         return inventory;
     }
