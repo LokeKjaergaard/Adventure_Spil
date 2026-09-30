@@ -38,11 +38,15 @@ public class Adventure {
 
             input = UserInterface.awaitInput(scanner, "What do you want to do?");
 
+            String[] parts = input.split(" ", 2);
+            String command = parts[0].toLowerCase();
+            String argument = parts.length > 1 ? parts[1].trim() : "";
+
             map.setNext(null);
 
             boolean triedToMove = false;
             boolean goingBack = false;
-            switch (input.toLowerCase()) {
+            switch (command.toLowerCase()) {
                 case "go north":
                     triedToMove = true;
                     map.setNext(player.getCurrentRoom().getNorth());
@@ -95,9 +99,10 @@ public class Adventure {
                     ui.listItems(player.getItems(), "your inventory");
                     break;
                 case "take":
-                    String itemName = UserInterface.awaitInput(scanner, "Write the name of the item you want to take.");
+                    String itemName = argument;
+
                     if (itemName.isEmpty()) {
-                        System.out.println("Invalid input");
+                        System.out.println("Invalid item name");
                     } else {
 
                         Item item = player.getCurrentRoom().findItemByShortName(itemName);
@@ -108,13 +113,12 @@ public class Adventure {
                     }
                     break;
                 case "drop":
-                    itemName = UserInterface.awaitInput(scanner, "Write the name of the item you want to drop.");
-                    if (itemName.isEmpty()) {
+                    if (argument.isEmpty()) {
                         System.out.println("Invalid input");
                     } else {
-                        Item item = player.findItemByShortName(itemName);
+                        Item item = player.findItemByShortName(argument);
                         if (item != null) {
-                            player.addItem(item, player.getCurrentRoom());
+                            player.removeItem(item);
                             System.out.println("You took the item");
                         } else System.out.println("That item is not in this room");
                     }
@@ -124,12 +128,22 @@ public class Adventure {
                     break;
 
                 case "eat":
+                    if (argument.isEmpty()){
+                        System.out.println("Invalid item name");
+                    } else {
+                        Item item = player.findItemByShortName(argument);
+                        if (item != null) {
+                            //player.(item, player.getCurrentRoom());
+                            System.out.println("You ate the item in the room");
+                        } else {
+                            break;
+                        }
+                    }
                     break;
                 case "look":
                     ui.printRoomDescription(player.getCurrentRoom());
                     break;
                 case "exit":
-
                     System.out.println("Goodbye!");
                     return;
 
