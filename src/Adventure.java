@@ -8,6 +8,7 @@ public class Adventure {
         Scanner scanner = new Scanner(System.in);
         String input;
 
+        //Items
         Item Gun = new Item("Gun","A Sniper riffle", 4);
         Item lamp = new Item("lamp","a shiny brass lamp", 1);
         Item clothes = new Item("Shoes", "Shiny shoe", 2);
@@ -18,6 +19,10 @@ public class Adventure {
             possibleRoomItems.add(clothes);
 
         map.addRandomItems(possibleRoomItems);
+
+        //Food - items
+
+
 
         Player player = new Player("John Doe", map.getRoom1());
 
@@ -113,6 +118,10 @@ public class Adventure {
                             System.out.println("You took the item");
                         } else System.out.println("That item is not in this room");
                     }
+
+                case "health":
+                    Player.getHealth();
+
                     break;
                 case "look":
                     ui.printRoomDescription(player.getCurrentRoom());

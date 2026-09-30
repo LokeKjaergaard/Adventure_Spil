@@ -5,6 +5,7 @@ public class Player {
     private String name;
     private ArrayList<Item> inventory = new ArrayList<>();
     private int maxCarry = 20;
+    private int currentHealth = 100;
 
     public Player(String name, Room currentRoom) {
         this.name = name;
@@ -22,6 +23,12 @@ public class Player {
     public void setCurrentRoom(Room currentRoom) {
         this.currentRoom = currentRoom;
     }
+
+    public int getHealth(){
+        return currentHealth;
+    }
+
+
 
     public void addItem(Item item, Room room) {
         if (getCurrentWeight() + item.getWeight() <= maxCarry) {
