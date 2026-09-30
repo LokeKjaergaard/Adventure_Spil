@@ -50,41 +50,57 @@ public class Map {
 
     Random random = new Random();
 
-    public void addRandomItems(ArrayList<Item> possibleItems) {
-        Random random = new Random();
+    ArrayList<Item> possibleRoomItems = new ArrayList<>();
+    ArrayList<Food> possibleRoomFood = new ArrayList<>();
+
+    // Items
+    Item gun = new Item("Gun", "A Sniper riffle", 4);
+    Item lamp = new Item("lamp", "a shiny brass lamp",1);
+    Item clothes = new Item("Shoes", "Shiny shoes", 2);
+
+
+    // Foods
+    Food bread = new Food("bread", "a loaf of stale bread", 2, 35);
+    Food mushroom = new Food("mushroom", "a pale glowing mushroom", 3, -50);
+    Food pizza = new Food("PIZZA", "A delicous PIZZA", 4, 50);
+
+    public void addRandomItems() {
+
+        //items
+        possibleRoomItems.add(gun);
+        possibleRoomItems.add(lamp);
+        possibleRoomItems.add(clothes);
+
+        //food
+        possibleRoomFood.add(bread);
+        possibleRoomFood.add(mushroom);
+        possibleRoomFood.add(pizza);
+
 
         for (Room room : roomList) {
-            for (int i = 0; i < possibleItems.size(); i++){
+            for (Item possibleRoomItem : possibleRoomItems) {
                 boolean b = random.nextBoolean();
-                if (b){
-                    Item item = possibleItems.get(i);
-                    room.addItem(item);
-                    //System.out.println(room.getName() + " fik: " + item.getShortName());
+                if (b) {
+                    room.addItem(possibleRoomItem);
+                    System.out.println(room.getName() + " fik: " + possibleRoomItem.getShortName());
+                }
+                boolean a = random.nextBoolean();
+                for (Food food: possibleRoomFood) {
+                    if (a) {
+                        room.addFood(food);
+                        System.out.println(room.getName() + " fik: " + food.getShortName());
+                    }
+
                 }
             }
+
         }
     }
 
     public void setupMap() {
 
-        Item Gun = new Item(
-                "Gun",
-                "A Sniper riffle",
-                4
-        );
-        Item lamp = new Item(
-                "lamp",
-                "a shiny brass lamp",
-                1
-        );
-        Item clothes = new Item(
-                "Shoes",
-                "Shiny shoes",
-                2
-        );
-
         addRooms();
-       currentRoom = room1;
+        currentRoom = room1;
 
         room1.addItem(item1);
         room1.setEast(room2);
