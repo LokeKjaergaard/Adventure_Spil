@@ -8,27 +8,12 @@ public class Adventure {
         Scanner scanner = new Scanner(System.in);
         String input;
 
-        //Items
-        Item Gun = new Item("Gun","A Sniper riffle", 4);
-        Item lamp = new Item("lamp","a shiny brass lamp", 1);
-        Item clothes = new Item("Shoes", "Shiny shoe", 2);
-
-        ArrayList<Item> possibleRoomItems = new ArrayList<>();
-            possibleRoomItems.add(Gun);
-            possibleRoomItems.add(lamp);
-            possibleRoomItems.add(clothes);
-
-        map.addRandomItems(possibleRoomItems);
-
-        //Food - items
-
-
+        //Items in rooms
+        map.addRandomItems();
 
         Player player = new Player("John Doe", map.getRoom1());
 
-
         System.out.println("=== TESTING ===");
-
 
         System.out.println("= END TESTING =");
         while (true) {
@@ -46,7 +31,7 @@ public class Adventure {
 
             boolean triedToMove = false;
             boolean goingBack = false;
-            switch (command.toLowerCase()) {
+            switch (input.toLowerCase()) {
                 case "go north":
                     triedToMove = true;
                     map.setNext(player.getCurrentRoom().getNorth());
@@ -59,7 +44,6 @@ public class Adventure {
                     triedToMove = true;
                     map.setNext(player.getCurrentRoom().getEast());
                     break;
-
                 case "go west":
                     triedToMove = true;
                     map.setNext(player.getCurrentRoom().getWest());
@@ -83,7 +67,6 @@ public class Adventure {
                         map.setXyzzy(map.getCurrentRoom());
                         break;
                     }
-
 
 
                 case "turn on light":
@@ -147,7 +130,6 @@ public class Adventure {
                     System.out.println("Goodbye!");
                     return;
 
-
                 default:
                     System.out.println("Invalid command!");
                     break;
@@ -169,7 +151,6 @@ public class Adventure {
                 map.setCurrentRoom(map.getNext());
                 player.setCurrentRoom(map.getNext());
             }
-
 
         }
     }
