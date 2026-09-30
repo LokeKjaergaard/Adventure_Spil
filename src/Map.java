@@ -25,11 +25,11 @@ public class Map {
     private Room room15 = new Room("Room 15", "A large room with an old wooden bed placed in the middle", false);
 
 
-
     Item item1 = new Item("test", "this is a test", 2);
     Item item2 = new Item("another", "another item", 2);
 
     ArrayList<Room> roomList = new ArrayList<Room>();
+
     private void addRooms() {
         roomList.add(room1);
         roomList.add(room2);
@@ -51,11 +51,11 @@ public class Map {
     Random random = new Random();
 
     ArrayList<Item> possibleRoomItems = new ArrayList<>();
-    ArrayList<Food> possibleRoomFood = new ArrayList<>();
+    //ArrayList<Food> possibleRoomFood = new ArrayList<>();
 
     // Items
     Item gun = new Item("Gun", "A Sniper riffle", 4);
-    Item lamp = new Item("lamp", "a shiny brass lamp",1);
+    Item lamp = new Item("lamp", "a shiny brass lamp", 1);
     Item clothes = new Item("Shoes", "Shiny shoes", 2);
 
 
@@ -72,30 +72,36 @@ public class Map {
         possibleRoomItems.add(clothes);
 
         //food
-        possibleRoomFood.add(bread);
+        possibleRoomItems.add(bread);
+        possibleRoomItems.add(mushroom);
+        possibleRoomItems.add(pizza);
+
+
+        /*possibleRoomFood.add(bread);
         possibleRoomFood.add(mushroom);
         possibleRoomFood.add(pizza);
-
+*/
 
         for (Room room : roomList) {
             for (Item possibleRoomItem : possibleRoomItems) {
                 boolean b = random.nextBoolean();
                 if (b) {
                     room.addItem(possibleRoomItem);
+
                     System.out.println(room.getName() + " fik: " + possibleRoomItem.getShortName());
                 }
-                boolean a = random.nextBoolean();
-                for (Food food: possibleRoomFood) {
+                /* boolean a = random.nextBoolean();
+                for (Food food : possibleRoomFood) {
                     if (a) {
                         room.addFood(food);
                         System.out.println(room.getName() + " fik: " + food.getShortName());
-                    }
+                    }*/
 
                 }
             }
 
         }
-    }
+
 
     public void setupMap() {
 
@@ -151,7 +157,7 @@ public class Map {
 
     }
 
-    public void setCurrentRoom(Room room){
+    public void setCurrentRoom(Room room) {
         currentRoom = room;
     }
 
@@ -167,11 +173,11 @@ public class Map {
         next = room;
     }
 
-    public Room getPreviousRoom(){
+    public Room getPreviousRoom() {
         return previousRoom;
     }
 
-    public void setPreviousRoom(Room room){
+    public void setPreviousRoom(Room room) {
         previousRoom = room;
 
     }
@@ -184,7 +190,7 @@ public class Map {
         this.xyzzy = room;
     }
 
-    public Room getRoom1(){
+    public Room getRoom1() {
         return room1;
     }
 }

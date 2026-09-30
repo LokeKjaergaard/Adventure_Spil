@@ -11,14 +11,9 @@ public class Adventure {
         //Items in rooms
         map.addRandomItems();
 
-        //Food - items
-
-
         Player player = new Player("John Doe", map.getRoom1());
 
-
         System.out.println("=== TESTING ===");
-
 
         System.out.println("= END TESTING =");
         while (true) {
@@ -45,7 +40,6 @@ public class Adventure {
                     triedToMove = true;
                     map.setNext(player.getCurrentRoom().getEast());
                     break;
-
                 case "go west":
                     triedToMove = true;
                     map.setNext(player.getCurrentRoom().getWest());
@@ -69,7 +63,6 @@ public class Adventure {
                         map.setXyzzy(map.getCurrentRoom());
                         break;
                     }
-
 
 
                 case "turn on light":
@@ -110,7 +103,6 @@ public class Adventure {
                     }
                     break;
 
-
                 case "look":
                     ui.printRoomDescription(player.getCurrentRoom());
                     break;
@@ -118,7 +110,6 @@ public class Adventure {
 
                     System.out.println("Goodbye!");
                     return;
-
 
                 default:
                     System.out.println("Invalid command!");
@@ -141,7 +132,6 @@ public class Adventure {
                 map.setCurrentRoom(map.getNext());
                 player.setCurrentRoom(map.getNext());
             }
-
 
         }
     }
