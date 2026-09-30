@@ -77,4 +77,20 @@ public class UserInterface {
         } else System.out.println("There's nothing of note in " + text + ".");
 
     }
+
+    public void printPlayerHealth(Player player){
+        int health = player.getHealth();
+        String text;
+
+        if (health >= 100) {
+            text = "you are in perfect health";
+        } else if (health >= 50){
+           text = "you are in good health, but avoid fighting right now";
+        } else if (health >= 25){
+            text = "you are wounded - find something healthy to eat";
+        } else if (health >= 1) {
+            text = "you are barely alive";
+        } else text = "you should be dead";
+        System.out.println("You have " + player.getHealth() + "/100 health. " + text + ".");
+    }
 }
