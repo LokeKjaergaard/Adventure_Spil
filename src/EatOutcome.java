@@ -9,9 +9,7 @@ public class EatOutcome {
         this.healthChange = healthChange;
     }
 
-    public enum EatResult {
-        NOT_FOUND, NOT_FOOD, EATEN
-    }
+
     public EatResult getResult() {
         return result;
     }

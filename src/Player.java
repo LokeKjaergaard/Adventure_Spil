@@ -50,8 +50,30 @@ public class Player {
         } else System.out.println("Your inventory is empty!");
     }
 
-    public void eat(Food food){
-        //todo
+    // Attempt to eat an item by shortname.
+    public EatOutcome attemptEat(String shortName){
+        EatOutcome fromInventory = attemptEatFrom(shortName, inventory);
+        if (fromInventory.getResult() == EatResult.EATEN) {
+            return fromInventory;
+        }
+        return attemptEatFrom(shortName, currentRoom.getRoomItems());
+    }
+
+    // allow you to eat an item from a chosen item storage.
+    public EatOutcome attemptEatFrom(String shortName, ArrayList<Item> items){
+        Item item = Item.findItemByShortName(shortName, items);
+        if (item == null){
+            return new EatOutcome(EatResult.NOT_FOUND, shortName, 0);
+        }
+        if (!(item instanceof Food food)){
+            return new EatOutcome(EatResult.NOT_FOOD, shortName, 0);
+        }
+        items.remove(food);
+        currentHealth += food.getHealthPoints();
+        if (currentHealth > 100) {
+            currentHealth = 100;
+        }
+        return new EatOutcome(EatResult.EATEN, shortName, food.getHealthPoints());
     }
 
     public ArrayList<Item> getItems() {
