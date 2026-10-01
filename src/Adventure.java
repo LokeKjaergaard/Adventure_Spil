@@ -116,15 +116,25 @@ public class Adventure {
                     break;
 
                 case "eat":
-                    if (argument.isEmpty()){
+                    if (argument.isEmpty()) {
                         System.out.println("Invalid item name");
                     } else {
-                        Item item = player.findItemByShortName(argument);
-                        if (item != null) {
-                            //player.(item, player.getCurrentRoom());
-                            System.out.println("You ate the item in the room");
-                        } else {
-                            break;
+                        EatOutcome outcome = player.attemptEat(argument);
+                        EatResult result = outcome.getResult();
+                        int healthGain = outcome.getHealthChange();
+
+                        switch (result) {
+                            case NOT_FOUND:
+                                System.out.println("That food tem doesn't exist in your inventory or this room!");
+                            case NOT_FOOD:
+                                System.out.println("That is not a food!");
+                            case EATEN:
+                                if (healthGain > 0) {
+                                    System.out.println("Yummy, you gained " + healthGain + " health!");
+                                } else if (healthGain == 0) {
+                                    System.out.println("That food wasn't nutritious. You gained no health.");
+                                } else
+                                    System.out.println("Ouch! That food was poison. You lose " + healthGain + " health!");
                         }
                     }
                     break;
