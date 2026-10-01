@@ -31,28 +31,33 @@ public class Adventure {
 
             boolean triedToMove = false;
             boolean goingBack = false;
-            switch (input.toLowerCase()) {
-                case "go north":
-                    triedToMove = true;
-                    map.setNext(player.getCurrentRoom().getNorth());
+            switch (command.toLowerCase()) {
+                case "go":
+                    switch (argument) {
+                        case "north":
+                            triedToMove = true;
+                            map.setNext(player.getCurrentRoom().getNorth());
+                            break;
+                        case "south":
+                            triedToMove = true;
+                            map.setNext(player.getCurrentRoom().getSouth());
+                            break;
+                        case "east":
+                            triedToMove = true;
+                            map.setNext(player.getCurrentRoom().getEast());
+                            break;
+                        case "west":
+                            triedToMove = true;
+                            map.setNext(player.getCurrentRoom().getWest());
+                            break;
+                        case "back":
+                            triedToMove = true;
+                            goingBack = true;
+                            map.setNext(map.getPreviousRoom());
+                            break;
+                    }
                     break;
-                case "go south":
-                    triedToMove = true;
-                    map.setNext(player.getCurrentRoom().getSouth());
-                    break;
-                case "go east":
-                    triedToMove = true;
-                    map.setNext(player.getCurrentRoom().getEast());
-                    break;
-                case "go west":
-                    triedToMove = true;
-                    map.setNext(player.getCurrentRoom().getWest());
-                    break;
-                case "go back":
-                    triedToMove = true;
-                    goingBack = true;
-                    map.setNext(map.getPreviousRoom());
-                    break;
+
 
                 case "xyzzy":
                     if (map.getXyzzy() == null) {
