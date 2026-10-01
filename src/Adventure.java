@@ -13,9 +13,8 @@ public class Adventure {
 
         Player player = new Player("John Doe", map.getRoom1());
 
-        System.out.println("=== TESTING ===");
+        ui.printTests();
 
-        System.out.println("= END TESTING =");
         while (true) {
             // Room info
             boolean roomChanged = false;

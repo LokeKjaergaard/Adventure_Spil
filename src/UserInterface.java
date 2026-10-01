@@ -93,4 +93,12 @@ public class UserInterface {
         } else text = "you should be dead";
         System.out.println("You have " + player.getHealth() + "/100 health. " + text + ".");
     }
+
+    public void printTests() {
+        System.out.println("=== TESTING ===");
+        System.out.println();
+        generateBorder("No tests");
+        System.out.println();
+        System.out.println("= END TESTING =");
+    }
 }
