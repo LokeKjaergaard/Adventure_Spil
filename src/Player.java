@@ -6,6 +6,7 @@ public class Player {
     private ArrayList<Item> inventory = new ArrayList<>();
     private int maxCarry = 20;
     private int currentHealth = 100;
+    private Weapon equipped;
 
     public Player(String name, Room currentRoom) {
         this.name = name;
@@ -90,6 +91,20 @@ public class Player {
             weight = weight + inventory.get(i).getWeight();
         }
         return weight;
+    }
+    public void equip(String shortname) {
+        Item item = findItemByShortName(shortname);
+        if(item == null){
+            System.out.println("Weapon could not be found in inventory");
+        }
+        else if(item instanceof Weapon){
+            equipped = (Weapon) item;
+            System.out.println("you equipped" + item.getShortName());
+        }
+        else{
+            System.out.println("that is not a weapon");
+        }
+
     }
 
 }
