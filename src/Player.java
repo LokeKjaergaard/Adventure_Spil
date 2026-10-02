@@ -52,7 +52,7 @@ public class Player {
     }
 
     // Attempt to eat an item by shortname.
-    public EatOutcome attemptEat(String shortName){
+    public EatOutcome eat(String shortName){
         EatOutcome fromInventory = attemptEatFrom(shortName, inventory);
         if (fromInventory.getResult() == EatResult.EATEN) {
             return fromInventory;
@@ -61,7 +61,7 @@ public class Player {
     }
 
     // allow you to eat an item from a chosen item storage.
-    public EatOutcome attemptEatFrom(String shortName, ArrayList<Item> items){
+    private EatOutcome attemptEatFrom(String shortName, ArrayList<Item> items){
         Item item = Item.findItemByShortName(shortName, items);
         if (item == null){
             return new EatOutcome(EatResult.NOT_FOUND, shortName, 0);

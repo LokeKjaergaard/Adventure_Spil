@@ -11,7 +11,13 @@ public class Food extends Item {
         return healthPoints;
     }
 
-
+    public void printLongName(){
+        System.out.println(longName);
+    }
+    @Override
+    public String getLongName() {
+        return longName + " (" + healthPoints + " health)";
+    }
 
 
 
