@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Item {
 
     private String shortName;
-    private String longName;
+    protected String longName;
     private int weight;
 
     public Item(String shortName, String longName, int weight) {
