@@ -82,19 +82,11 @@ public class Map {
         possibleRoomItems.add(mushroom);
         possibleRoomItems.add(pizza);
 
-
         //Weapons
         possibleRoomItems.add(sword);
         possibleRoomItems.add(bomb);
         possibleRoomItems.add(gun);
 
-
-
-
-        /*possibleRoomFood.add(bread);
-        possibleRoomFood.add(mushroom);
-        possibleRoomFood.add(pizza);
-*/
 
         for (Room room : roomList) {
             for (Item possibleRoomItem : possibleRoomItems) {
@@ -102,14 +94,9 @@ public class Map {
                 if (b) {
                     room.addItem(possibleRoomItem);
 
-                    System.out.println(room.getName() + " fik: " + possibleRoomItem.getShortName());
+                   // System.out.println(room.getName() + " fik: " + possibleRoomItem.getShortName());
                 }
-                /* boolean a = random.nextBoolean();
-                for (Food food : possibleRoomFood) {
-                    if (a) {
-                        room.addFood(food);
-                        System.out.println(room.getName() + " fik: " + food.getShortName());
-                    }*/
+
 
                 }
             }
