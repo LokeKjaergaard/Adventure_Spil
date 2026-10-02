@@ -54,7 +54,6 @@ public class Map {
     //ArrayList<Food> possibleRoomFood = new ArrayList<>();
 
     // Items
-    Item gun = new Item("Gun", "A Sniper riffle", 4);
     Item lamp = new Item("lamp", "a shiny brass lamp", 1);
     Item clothes = new Item("Shoes", "Shiny shoes", 2);
 
@@ -64,10 +63,17 @@ public class Map {
     Food mushroom = new Food("mushroom", "a pale glowing mushroom", 3, -50);
     Food pizza = new Food("PIZZA", "A delicous PIZZA", 4, 50);
 
+
+    //Weapons
+    Weapon sword = new Weapon("Sword", "a long rusty sword", 2, 35);
+    Weapon bomb  = new Weapon("Bomb", "a old faulty bomb?", 3, 70);
+    Weapon gun = new Weapon("Gun", "A Sniper riffle", 4, 45);
+
+
+
     public void addRandomItems() {
 
         //items
-        possibleRoomItems.add(gun);
         possibleRoomItems.add(lamp);
         possibleRoomItems.add(clothes);
 
@@ -75,6 +81,14 @@ public class Map {
         possibleRoomItems.add(bread);
         possibleRoomItems.add(mushroom);
         possibleRoomItems.add(pizza);
+
+
+        //Weapons
+        possibleRoomItems.add(sword);
+        possibleRoomItems.add(bomb);
+        possibleRoomItems.add(gun);
+
+
 
 
         /*possibleRoomFood.add(bread);
