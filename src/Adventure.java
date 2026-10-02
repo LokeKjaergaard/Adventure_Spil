@@ -112,33 +112,11 @@ public class Adventure {
                             System.out.println("You took the item");
                         } else System.out.println("That item is not in this room");
                     }
-
                 case "health":
                     ui.printPlayerHealth(player);
                     break;
-
                 case "eat":
-                    if (argument.isEmpty()) {
-                        System.out.println("Invalid item name");
-                    } else {
-                        EatOutcome outcome = player.attemptEat(argument);
-                        EatResult result = outcome.getResult();
-                        int healthGain = outcome.getHealthChange();
-
-                        switch (result) {
-                            case NOT_FOUND:
-                                System.out.println("That food tem doesn't exist in your inventory or this room!");
-                            case NOT_FOOD:
-                                System.out.println("That is not a food!");
-                            case EATEN:
-                                if (healthGain > 0) {
-                                    System.out.println("Yummy, you gained " + healthGain + " health!");
-                                } else if (healthGain == 0) {
-                                    System.out.println("That food wasn't nutritious. You gained no health.");
-                                } else
-                                    System.out.println("Ouch! That food was poison. You lose " + healthGain + " health!");
-                        }
-                    }
+                    ui.eat(player, argument);
                     break;
                 case "look":
                     ui.printRoomDescription(player.getCurrentRoom());
@@ -146,11 +124,9 @@ public class Adventure {
                 case "exit":
                     System.out.println("Goodbye!");
                     return;
-
                 default:
                     System.out.println("Invalid command!");
                     break;
-
             }
 
             if (triedToMove) {
