@@ -4,6 +4,8 @@ import java.util.Scanner;
 public class Weapon extends Item {
 
     private int damage;
+    private String meleeWeapon;
+    private String longRangeWeapon;
 
     public Weapon(String shortName, String longName, int weight, int damage) {
         super(shortName, longName, weight);
