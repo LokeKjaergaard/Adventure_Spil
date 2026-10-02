@@ -72,12 +72,15 @@ public class Adventure {
                         break;
                     }
 
-
-                case "turn on light":
-                    player.getCurrentRoom().turnOnLight();
-                    break;
-                case "turn off light":
-                    player.getCurrentRoom().turnOffLight();
+                case "turn":
+                    switch (argument){
+                        case "on light":
+                            player.getCurrentRoom().turnOnLight();
+                            break;
+                        case "off light":
+                            player.getCurrentRoom().turnOffLight();
+                            break;
+                    }
                     break;
                 case "help":
                     ui.printHelp();
