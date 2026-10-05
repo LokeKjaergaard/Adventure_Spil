@@ -18,7 +18,7 @@ public class Food extends Item {
     }
     @Override
     public String getLongName() {
-        return longName + " (" + healthPoints + " health)";
+        return longName + " (edible)";
     }
 
 

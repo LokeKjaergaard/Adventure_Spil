@@ -69,6 +69,8 @@ public class Map {
     Weapon sword = new MeleeWeapon("Sword", "a long rusty sword", 2, 35);
     Weapon bomb = new ExplosiveWeapon("Bomb", "a old faulty bomb?", 3, 70);
     Weapon gun = new RangedWeapon("Gun", "A Sniper riffle", 4, 45, 6);
+    Weapon magicwand = new Weapon("Magic Wand", "A mysterious magic wand", 5, 40)
+
 
 
     public void addRandomItems() {
@@ -94,13 +96,14 @@ public class Map {
                 if (b) {
                     room.addItem(possibleRoomItem);
 
-                    // System.out.println(room.getName() + " fik: " + possibleRoomItem.getShortName());
+                   // System.out.println(room.getName() + " fik: " + possibleRoomItem.getShortName());
                 }
 
-            }
-        }
 
-    }
+                }
+            }
+
+        }
 
 
     public void setupMap() {
