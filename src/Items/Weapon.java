@@ -1,5 +1,6 @@
+package Items;
+
 import java.util.Random;
-import java.util.Scanner;
 
 public abstract class Weapon extends Item {
 

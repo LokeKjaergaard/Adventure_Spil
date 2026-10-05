@@ -1,5 +1,6 @@
+import Items.Item;
+
 import java.util.Scanner;
-import java.util.ArrayList;
 
 public class Adventure {
     public static void start(Map map) {

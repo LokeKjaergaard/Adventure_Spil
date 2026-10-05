@@ -1,5 +1,7 @@
+import Items.Food;
+import Items.Item;
+
 import java.util.ArrayList;
-import java.util.Random;
 
 public class Room {
 
@@ -155,7 +157,7 @@ public class Room {
         if (!roomItems.isEmpty()) {
             if (roomItems.contains(item)) {
                 roomItems.remove(item);
-            } else System.out.println("Item: '" + item.getLongName() + "' is not in the current room");
+            } else System.out.println("WeaponClasses.Item: '" + item.getLongName() + "' is not in the current room");
 
         } else System.out.println("The current room is empty");
     }

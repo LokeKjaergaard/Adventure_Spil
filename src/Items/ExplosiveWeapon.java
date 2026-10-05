@@ -1,3 +1,5 @@
+package Items;
+
 public class ExplosiveWeapon extends Weapon {
 
     public ExplosiveWeapon(String shortName, String longName, int weight, int damage){
