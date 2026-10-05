@@ -1,3 +1,8 @@
+import Items.Food;
+import Items.Item;
+import Items.Weapon;
+
+
 import java.util.ArrayList;
 
 public class Player {
@@ -46,7 +51,7 @@ public class Player {
             if (inventory.contains(item)) {
                 inventory.remove(item);
                 currentRoom.addItem(item);
-            } else System.out.println("Item: '" + item.getLongName() + "' is not in your inventory");
+            } else System.out.println("WeaponClasses.Item: '" + item.getLongName() + "' is not in your inventory");
 
         } else System.out.println("Your inventory is empty!");
     }
@@ -95,7 +100,7 @@ public class Player {
     public void equip(String shortname) {
         Item item = findItemByShortName(shortname);
         if(item == null){
-            System.out.println("Weapon could not be found in inventory");
+            System.out.println("WeaponClasses.Weapon could not be found in inventory");
         }
         else if(item instanceof Weapon){
             equipped = (Weapon) item;

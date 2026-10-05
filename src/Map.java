@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Random;
+import Items.*;
 
 public class Map {
 
@@ -51,7 +52,7 @@ public class Map {
     Random random = new Random();
 
     ArrayList<Item> possibleRoomItems = new ArrayList<>();
-    //ArrayList<Food> possibleRoomFood = new ArrayList<>();
+    //ArrayList<Items.Food> possibleRoomFood = new ArrayList<>();
 
     // Items
     Item lamp = new Item("lamp", "a shiny brass lamp", 1);
