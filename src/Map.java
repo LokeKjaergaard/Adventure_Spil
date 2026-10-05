@@ -66,7 +66,7 @@ public class Map {
 
     //Weapons
     Weapon sword = new MeleeWeapon("Sword", "a long rusty sword", 2, 35);
-    Weapon bomb = new RangedWeapon("Bomb", "a old faulty bomb?", 3, 70);
+    Weapon bomb = new ExplosiveWeapon("Bomb", "a old faulty bomb?", 3, 70);
     Weapon gun = new RangedWeapon("Gun", "A Sniper riffle", 4, 45, 6);
 
 
