@@ -107,4 +107,18 @@ public class Player {
 
     }
 
+    public void attack() {
+        if (equipped == null){
+            System.out.println("You dont have a weapon equipped!");
+            return;
+        }
+
+        if (!equipped.canUse()){
+            System.out.println("Your weapon cannot be used!");
+            return;
+        }
+
+        equipped.use();
+    }
+
 }
