@@ -112,6 +112,9 @@ public class Adventure {
                             System.out.println("You took the item");
                         } else System.out.println("That item is not in this room");
                     }
+                case "equip":
+                    player.equip(argument);
+                    break;
                 case "health":
                     ui.printPlayerHealth(player);
                     break;
