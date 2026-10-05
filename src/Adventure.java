@@ -58,7 +58,6 @@ public class Adventure {
                     }
                     break;
 
-
                 case "xyzzy":
                     if (map.getXyzzy() == null) {
                         triedToMove = true;
@@ -115,6 +114,9 @@ public class Adventure {
                     }
                 case "equip":
                     player.equip(argument);
+                    break;
+                case "attack":
+                    System.out.println("Not implemented yet sorry! :b");
                     break;
                 case "health":
                     ui.printPlayerHealth(player);
