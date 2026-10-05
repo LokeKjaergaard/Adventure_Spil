@@ -113,8 +113,10 @@ public class UserInterface {
             switch (result) {
                 case NOT_FOUND:
                     System.out.println("That food tem doesn't exist in your inventory or this room!");
+                    break;
                 case NOT_FOOD:
                     System.out.println("That is not a food!");
+                    break;
                 case EATEN:
                     if (healthGain > 0) {
                         System.out.println("Yummy, you gained " + healthGain + " health!");
@@ -122,6 +124,7 @@ public class UserInterface {
                         System.out.println("That food wasn't nutritious. You gained no health.");
                     } else
                         System.out.println("Ouch! That food was poison. You lose " + healthGain + " health!");
+                    break;
             }
         }
     }
