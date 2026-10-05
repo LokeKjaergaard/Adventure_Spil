@@ -99,7 +99,7 @@ public class Player {
         }
         else if(item instanceof Weapon){
             equipped = (Weapon) item;
-            System.out.println("you equipped" + item.getShortName());
+            System.out.println("you equipped " + item.getShortName());
         }
         else{
             System.out.println("that is not a weapon");
