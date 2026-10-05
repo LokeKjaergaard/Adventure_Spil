@@ -1,16 +1,15 @@
 import java.util.Random;
 import java.util.Scanner;
 
-public class Weapon extends Item {
+public abstract class Weapon extends Item {
 
     private int damage;
-    private String meleeWeapon;
-    private String longRangeWeapon;
 
     public Weapon(String shortName, String longName, int weight, int damage) {
         super(shortName, longName, weight);
         this.damage = damage;
     }
+
     public int getDamage() {
         return damage;
     }
@@ -20,5 +19,9 @@ public class Weapon extends Item {
 
         return random.nextBoolean();
     }
+
+    public abstract boolean canUse();
+
+    public abstract void use();
 
 }
