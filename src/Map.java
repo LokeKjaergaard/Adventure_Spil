@@ -68,6 +68,7 @@ public class Map {
     Weapon sword = new Weapon("Sword", "a long rusty sword", 2, 35);
     Weapon bomb  = new Weapon("Bomb", "a old faulty bomb?", 3, 70);
     Weapon gun = new Weapon("Gun", "A Sniper riffle", 4, 45);
+    Weapon magicwand = new Weapon("Magic Wand", "A mysterious magic wand", 5, 40)
 
 
 
@@ -86,6 +87,7 @@ public class Map {
         possibleRoomItems.add(sword);
         possibleRoomItems.add(bomb);
         possibleRoomItems.add(gun);
+        possibleRoomItems.add(magicwand);
 
 
         for (Room room : roomList) {
