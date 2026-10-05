@@ -39,7 +39,8 @@ public class Item {
         if (!items.isEmpty()) {
             for (int i = 0; i < length; i++){
                 Item item = items.get(i);
-                if (item.getShortName().equals(itemShortName)){
+                String name = item.getShortName().toLowerCase();
+                if (name.equals(itemShortName)){
                     return item;
                 }
             }
