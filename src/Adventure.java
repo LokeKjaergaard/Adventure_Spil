@@ -1,5 +1,6 @@
+import Items.Item;
+
 import java.util.Scanner;
-import java.util.ArrayList;
 
 public class Adventure {
     public static void start(Map map) {
@@ -57,7 +58,6 @@ public class Adventure {
                     }
                     break;
 
-
                 case "xyzzy":
                     if (map.getXyzzy() == null) {
                         triedToMove = true;
@@ -89,13 +89,12 @@ public class Adventure {
                     ui.listItems(player.getItems(), "your inventory");
                     break;
                 case "take":
-                    String itemName = argument;
 
-                    if (itemName.isEmpty()) {
+                    if (argument.isEmpty()) {
                         System.out.println("Invalid item name");
                     } else {
 
-                        Item item = player.getCurrentRoom().findItemByShortName(itemName);
+                        Item item = player.getCurrentRoom().findItemByShortName(argument);
                         if (item != null) {
                             player.addItem(item, player.getCurrentRoom());
                             System.out.println("You took the item");
@@ -114,6 +113,9 @@ public class Adventure {
                     }
                 case "equip":
                     player.equip(argument);
+                    break;
+                case "attack":
+                    System.out.println("Not implemented yet sorry! :b");
                     break;
                 case "health":
                     ui.printPlayerHealth(player);
