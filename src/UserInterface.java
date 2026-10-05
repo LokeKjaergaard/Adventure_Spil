@@ -9,16 +9,25 @@ public class UserInterface {
     }
 
     public void printHelp(){
-        System.out.println("Possible commands:");
+        generateBorder("Possible commands");
         System.out.println("- Go North");
         System.out.println("- Go South");
         System.out.println("- Go West");
         System.out.println("- Go East");
         System.out.println("- Go back - goes back to the previous room you just were in");
+        System.out.println("============================================================");
+        System.out.println("- Take <item>");
+        System.out.println("- Drop <item>");
+        System.out.println("- Use <item>");
+        System.out.println("- Eat <food>");
+        System.out.println("- Equip <weapon>");
+        System.out.println("=============================================================");
+        System.out.println("- Health - prints your current health");
         System.out.println("- Turn on light - turns on the light in the current room");
         System.out.println("- Turn off light - turns off the light in the current room");
         System.out.println("- Look - Describe the current room");
         System.out.println("- Exit - End game");
+        System.out.println("- xyzzy");
     }
 
     public void printRoomDescription(Room room){
@@ -37,13 +46,15 @@ public class UserInterface {
         } else {
             if (!room.isVisited()) {
                 text = "You are in " + room.getName() + ", " + room.getDescription();
-                room.makeVisited();
             } else text = "You are in " + room.getName();
 
         }
         generateBorder(text);
 
-        listItems(room.getRoomItems(), "this room");
+        if (!room.isDark()){
+            listItems(room.getRoomItems(), "this room");
+        }
+
     }
 
     public void generateBorder(String text){
