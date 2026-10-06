@@ -82,7 +82,6 @@ public class Map {
 
     Enemy wizard = new Enemy("Scientist","Exiled Scientist","A scientist who seems to know more about the building than he admits.",70, magicwand,null);
 
-    public void addRandomItems() {
     Enemy creature = new Enemy("Creature","Mutated Creature","A strange creature hiding in the darkness of the basement.",150, bomb,null);
 
 
