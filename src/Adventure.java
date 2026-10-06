@@ -115,7 +115,7 @@ public class Adventure {
                     player.equip(argument);
                     break;
                 case "attack":
-                    System.out.println("Not implemented yet sorry! :b");
+                    player.attack(argument);
                     break;
                 case "health":
                     ui.printPlayerHealth(player);
