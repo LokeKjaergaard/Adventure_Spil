@@ -17,6 +17,10 @@ public class Adventure {
         ui.printTests();
 
         while (true) {
+            if (player.getHealth() <= 0){
+                System.out.println("You are dead, game over!");
+                return;
+            }
             // Room info
             boolean roomChanged = false;
             ui.printWelcome(map.getCurrentRoom());
