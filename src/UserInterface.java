@@ -56,6 +56,7 @@ public class UserInterface {
         if (!room.isDark()){
             listItems(room.getRoomItems(), "this room");
         }
+        room.printConnectedRooms();
 
     }
 
