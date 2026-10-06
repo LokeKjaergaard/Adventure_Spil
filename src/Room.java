@@ -178,4 +178,16 @@ public class Room {
         return Item.findItemByShortName(shortName, roomItems);
     }
 
+    public Enemy findEnemyByShortName(String shortName){
+        Enemy currentEnemy;
+
+        for (Enemy enemy : enemies) {
+            currentEnemy = enemy;
+            if (currentEnemy.getShortName().equals(shortName)) {
+                return currentEnemy;
+            }
+        }
+        return null;
+    }
+
 }

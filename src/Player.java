@@ -123,7 +123,14 @@ public class Player {
             return;
         }
 
-        equipped.use();
+        Enemy enemy = currentRoom.findEnemyByShortName(enemyShortName);
+
+        if (enemy == null){
+            equipped.use();
+        } else {
+            enemy.hit(equipped.getDamage());
+            equipped.use();
+        }
     }
 
     public void hit(int damage) {
