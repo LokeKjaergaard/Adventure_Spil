@@ -1,6 +1,5 @@
 package Items;
 
-
 import java.util.ArrayList;
 
 public class Item {
@@ -10,7 +9,6 @@ public class Item {
     private int weight;
 
     public Item(String shortName, String longName, int weight) {
-
         this.shortName = shortName;
         this.longName = longName;
         this.weight = weight;
