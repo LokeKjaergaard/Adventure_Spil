@@ -11,6 +11,7 @@ public class Room {
     private boolean hasVisited = false;
     private boolean isDark;
     private ArrayList<Item> roomItems = new ArrayList<>();
+    private ArrayList<Enemy> enemies = new ArrayList<>();
 
     // neighboring rooms
     private Room north;
@@ -152,13 +153,25 @@ public class Room {
         if (!roomItems.isEmpty()) {
             if (roomItems.contains(item)) {
                 roomItems.remove(item);
-            } else System.out.println("WeaponClasses.Item: '" + item.getLongName() + "' is not in the current room");
+            } else System.out.println(item.getLongName() + "' is not in the current room");
 
         } else System.out.println("The current room is empty");
     }
 
     public ArrayList<Item> getRoomItems(){
         return roomItems;
+    }
+
+    public ArrayList<Enemy> getEnemies() {
+        return enemies;
+    }
+
+    public void addEnemy(Enemy enemy){
+        enemies.add(enemy);
+    }
+
+    public void removeEnemy(Enemy enemy){
+        enemies.remove(enemy);
     }
 
     public Item findItemByShortName(String shortName){
