@@ -117,7 +117,7 @@ public class Player {
             System.out.println("You dont have a weapon equipped!");
             return;
         }
-
+        int damage = equipped.getDamage();
         if (!equipped.canUse()){
             System.out.println("Your weapon cannot be used!");
             return;
@@ -127,9 +127,11 @@ public class Player {
 
         if (enemy == null){
             equipped.use();
+            System.out.println("There's nothing to attack. You attack the air.");
         } else {
-            enemy.hit(equipped.getDamage());
+            enemy.hit(damage);
             equipped.use();
+            System.out.println("You attacked '" + enemyShortName + "' Doing " + damage + ".");
         }
     }
 
