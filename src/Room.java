@@ -11,7 +11,6 @@ public class Room {
     private boolean hasVisited = false;
     private boolean isDark;
     private ArrayList<Item> roomItems = new ArrayList<>();
-    private ArrayList<Item> roomFood = new ArrayList<>();
 
     // neighboring rooms
     private Room north;
@@ -147,10 +146,6 @@ public class Room {
 
     public void addItem (Item item){
         roomItems.add(item);
-    }
-
-    public void addFood (Food food){
-        roomFood.add(food);
     }
 
     public void removeItem(Item item) {
