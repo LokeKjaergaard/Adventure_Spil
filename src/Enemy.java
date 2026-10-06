@@ -44,7 +44,15 @@ public class Enemy {
     }
 
     public void attack(Player player){
-        //todo
+        int playerHealth = player.getHealth();
+        int damage = weapon.getDamage();
+
+        if (weapon.canUse()){
+            weapon.use();
+            playerHealth =- weapon.getDamage();
+            player.setCurrentHealth(playerHealth);
+        }
+
     }
 
     public void hit(int damage){

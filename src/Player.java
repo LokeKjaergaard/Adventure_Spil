@@ -126,4 +126,7 @@ public class Player {
         equipped.use();
     }
 
+    public void setCurrentHealth(int currentHealth) {
+        this.currentHealth = currentHealth;
+    }
 }
