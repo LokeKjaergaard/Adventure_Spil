@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Random;
+
 import Items.*;
 
 public class Map {
@@ -51,7 +52,11 @@ public class Map {
 
     Random random = new Random();
 
+    //List for random, objects in rooms
     ArrayList<Item> possibleRoomItems = new ArrayList<>();
+    ArrayList<Enemy> possibleEnemies = new ArrayList<>();
+
+
     //ArrayList<Food> possibleRoomFood = new ArrayList<>();
 
     // Items
@@ -69,11 +74,19 @@ public class Map {
     Weapon sword = new MeleeWeapon("Sword", "a long rusty sword", 2, 35);
     Weapon bomb = new ExplosiveWeapon("Bomb", "a old faulty bomb?", 3, 70);
     Weapon gun = new RangedWeapon("Gun", "A Sniper riffle", 4, 45, 6);
-    Weapon magicwand = new RangedWeapon("Magic Wand", "A mysterious magic wand", 5, 40, 10);
+    Weapon magicwand = new MagicWeapon("Magic Wand", "A mysterious magic wand", 5, 40, 10);
 
 
+    //Enemies
+    Enemy guard = new Enemy("Guard","Security Guard","A former security guard still protecting the abandoned building.",100, gun,null);
+
+    Enemy wizard = new Enemy("Scientist","Exiled Scientist","A scientist who seems to know more about the building than he admits.",70, magicwand,null);
 
     public void addRandomItems() {
+    Enemy creature = new Enemy("Creature","Mutated Creature","A strange creature hiding in the darkness of the basement.",150, bomb,null);
+
+
+    public void addRandom() {
 
         //items
         possibleRoomItems.add(lamp);
@@ -89,6 +102,10 @@ public class Map {
         possibleRoomItems.add(bomb);
         possibleRoomItems.add(gun);
 
+        //Enemy
+        possibleEnemies.add(guard);
+        possibleEnemies.add(wizard);
+        possibleEnemies.add(creature);
 
         for (Room room : roomList) {
             for (Item possibleRoomItem : possibleRoomItems) {
@@ -96,14 +113,25 @@ public class Map {
                 if (b) {
                     room.addItem(possibleRoomItem);
 
-                   // System.out.println(room.getName() + " fik: " + possibleRoomItem.getShortName());
+                    // System.out.println(room.getName() + " fik: " + possibleRoomItem.getShortName());
                 }
 
-
-                }
             }
+            for (Enemy possibleEnemy : possibleEnemies){
+                boolean a = random.nextBoolean();
+                if (a) {
+                    room.addEnemy(possibleEnemy);
 
+                    //System.out.println(room.getName() + " fik " + possibleEnemy.getShortName());
+                }
+
+            }
         }
+
+
+
+
+    }
 
 
     public void setupMap() {
