@@ -78,11 +78,11 @@ public class Map {
 
 
     //Enemies
-    Enemy guard = new Enemy("Guard","Security Guard","A former security guard still protecting the abandoned building.",100, gun,null);
+    Enemy guard = new Enemy("Guard", "Security Guard", "A former security guard still protecting the abandoned building.", 100, gun, null);
 
-    Enemy wizard = new Enemy("Scientist","Exiled Scientist","A scientist who seems to know more about the building than he admits.",70, magicwand,null);
+    Enemy wizard = new Enemy("Scientist", "Exiled Scientist", "A scientist who seems to know more about the building than he admits.", 70, magicwand, null);
 
-    Enemy creature = new Enemy("Creature","Mutated Creature","A strange creature hiding in the darkness of the basement.",150, bomb,null);
+    Enemy creature = new Enemy("Creature", "Mutated Creature", "A strange creature hiding in the darkness of the basement.", 150, bomb, null);
 
 
     public void addRandom() {
@@ -114,9 +114,8 @@ public class Map {
 
                     // System.out.println(room.getName() + " fik: " + possibleRoomItem.getShortName());
                 }
-
             }
-            for (Enemy possibleEnemy : possibleEnemies){
+            for (Enemy possibleEnemy : possibleEnemies) {
                 boolean a = random.nextBoolean();
                 if (a) {
                     room.addEnemy(possibleEnemy);
@@ -126,9 +125,6 @@ public class Map {
 
             }
         }
-
-
-
 
     }
 
