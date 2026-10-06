@@ -1,10 +1,10 @@
 package Items;
 
-public class MagicWeapons extends Weapon{
+public class MagicWeapon extends Weapon{
     private int charges;
     private int turnsSinceUse;
 
-    public MagicWeapons(String shortName, String longName, int weight, int damage, int charges) {
+    public MagicWeapon(String shortName, String longName, int weight, int damage, int charges) {
         super(shortName, longName, weight, damage);
         this.charges = charges;
     }
