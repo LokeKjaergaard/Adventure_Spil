@@ -112,7 +112,7 @@ public class Player {
 
     }
 
-    public void attack() {
+    public void attack(String enemyShortName) {
         if (equipped == null){
             System.out.println("You dont have a weapon equipped!");
             return;
@@ -126,7 +126,7 @@ public class Player {
         equipped.use();
     }
 
-    public void setCurrentHealth(int currentHealth) {
-        this.currentHealth = currentHealth;
+    public void hit(int damage) {
+        this.currentHealth -= damage;
     }
 }
