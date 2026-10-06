@@ -10,7 +10,7 @@ public class Adventure {
         String input;
 
         //Items in rooms
-        map.addRandomItems();
+        map.addRandom();
 
         Player player = new Player("John Doe", map.getRoom1());
 
