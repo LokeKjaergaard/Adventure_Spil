@@ -1,4 +1,5 @@
 import Items.Item;
+import Items.Weapon;
 
 import java.util.Scanner;
 
@@ -119,8 +120,12 @@ public class Adventure {
                     player.equip(argument);
                     break;
                 case "attack":
+                    Enemy enemy = player.getCurrentRoom().findEnemyByShortName(argument);
+                    Weapon weapon = player.getEquippedWeapon();
                     hitOutcome outcome = player.attack(argument);
                     ui.printAttackOutcome(outcome, argument, player.getEquippedWeapon());
+                    hitOutcome outcomeEnemy = enemy.attack(player);
+                    ui.printEnemyAttackOutcome(outcomeEnemy, enemy, player.getEquippedWeapon());
                     break;
                 case "health":
                     ui.printPlayerHealth(player);

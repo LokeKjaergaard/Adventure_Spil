@@ -9,16 +9,42 @@ public class Fight {
     }
 
     public void startFight() {
-        player.attack(enemy.getShortName());
+        switch (enemy.getAggression()){
+            case PASSIVE -> {
+                player.attack(enemy.getShortName());
+            }
+            case NEUTRAL -> {
+                player.attack(enemy.getShortName());
 
-        if (enemy.getHealth() <= 0) {
 
-            System.out.println("you killed the enemy");
-            enemy.getRoom().addItem(enemy.getWeapon());
-            enemy.getRoom().removeEnemy(enemy);
-        } else {
-            enemy.attack(player);
+                if (enemy.getHealth() <= 0) {
+
+                    System.out.println("you killed the enemy");
+                    enemy.getRoom().addItem(enemy.getWeapon());
+                    enemy.getRoom().removeEnemy(enemy);
+                } else {
+                    enemy.attack(player);
+                }
+
+            }
+            case AGGRESSIVE -> {
+
+                if (enemy.getHealth() <= 0) {
+
+                    System.out.println("you killed the enemy");
+                    enemy.getRoom().addItem(enemy.getWeapon());
+                    enemy.getRoom().removeEnemy(enemy);
+                    return;
+                } else {
+                    enemy.attack(player);
+                }
+
+                player.attack(enemy.getShortName());
+
+            }
         }
+
+
 
     }
 

@@ -191,4 +191,11 @@ public class UserInterface {
             case WEAPON_EMPTY -> System.out.println("Your weapon cannot be used!");
         }
     }
+
+    public void printEnemyAttackOutcome(hitOutcome hitOutcome, Enemy enemy, Weapon weapon){
+        switch (hitOutcome){
+            case ENEMY_HIT -> System.out.println("The enemy hit you and dealt ");
+            case WEAPON_EMPTY -> System.out.println("The enemy attempted to use it weapon, nothing happened.");
+        }
+    }
 }

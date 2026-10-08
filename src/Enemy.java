@@ -49,14 +49,15 @@ public class Enemy {
         return aggression;
     }
 
-    public void attack(Player player){
+    public hitOutcome attack(Player player){
         int damage = weapon.getDamage();
 
         if (weapon.canUse()){
             weapon.use();
             player.hit(damage);
+            return hitOutcome.ENEMY_HIT;
         }
-
+        return hitOutcome.WEAPON_EMPTY;
     }
 
     public hitOutcome hit(int damage){
