@@ -112,7 +112,7 @@ public class Player {
 
     }
 
-    public void attack(String enemyShortName) {
+    public void attack(Enemy enemy) {
         if (equipped == null){
             System.out.println("You dont have a weapon equipped!");
             return;
@@ -123,7 +123,7 @@ public class Player {
             return;
         }
 
-        Enemy enemy = currentRoom.findEnemyByShortName(enemyShortName);
+
 
         if (enemy == null){
             equipped.use();
@@ -131,7 +131,7 @@ public class Player {
         } else {
             enemy.hit(damage);
             equipped.use();
-            System.out.println("You attacked '" + enemyShortName + "' Doing " + damage + ".");
+            System.out.println("You attacked '" + enemy.getShortName() + "' Doing " + damage + ".");
         }
     }
 

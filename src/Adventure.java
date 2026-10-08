@@ -115,7 +115,8 @@ public class Adventure {
                     player.equip(argument);
                     break;
                 case "attack":
-                    player.attack(argument);
+                    Enemy enemy = player.getCurrentRoom().findEnemyByShortName(argument);
+                    player.attack(enemy);
                     break;
                 case "health":
                     ui.printPlayerHealth(player);
