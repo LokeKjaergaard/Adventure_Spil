@@ -1,6 +1,6 @@
 public class Fight {
 
-    public enum aggressionType{
+    public enum AggressionType{
         PASSIVE,
         NEUTRAL,
         AGGRESSIVE
