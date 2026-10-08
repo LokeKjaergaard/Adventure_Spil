@@ -119,7 +119,8 @@ public class Adventure {
                     player.equip(argument);
                     break;
                 case "attack":
-                    player.attack(argument);
+                    hitOutcome outcome = player.attack(argument);
+                    ui.printAttackOutcome(outcome, argument, player.getEquippedWeapon());
                     break;
                 case "health":
                     ui.printPlayerHealth(player);

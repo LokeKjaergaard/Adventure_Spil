@@ -8,15 +8,17 @@ public class Enemy {
     private int health;
     private Weapon weapon;
     private Room room;
+    private Fight.AggressionType aggression;
 
 
-    public Enemy(String shortName, String longName, String description, int health, Weapon weapon, Room room){
+    public Enemy(String shortName, String longName, String description, int health, Weapon weapon, Room room, Fight.AggressionType aggression){
         this.shortName = shortName;
         this.longName = longName;
         this.description = description;
         this.health = health;
         this.weapon = weapon;
         this.room = room;
+        this.aggression = aggression;
     }
 
     public String getShortName() {
@@ -53,7 +55,13 @@ public class Enemy {
 
     }
 
-    public void hit(int damage){
+    public hitOutcome hit(int damage){
         health -= damage;
+
+        if (health <= 0){
+            room.addItem(weapon);
+            room.removeEnemy(this);
+            return hitOutcome.ENEMY_DIED;
+        } else return hitOutcome.ENEMY_HIT;
     }
 }

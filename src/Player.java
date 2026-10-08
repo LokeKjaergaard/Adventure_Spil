@@ -97,6 +97,11 @@ public class Player {
         }
         return weight;
     }
+
+    public Weapon getEquippedWeapon() {
+        return equipped;
+    }
+
     public void equip(String shortname) {
         Item item = findItemByShortName(shortname);
         if(item == null){
@@ -112,27 +117,24 @@ public class Player {
 
     }
 
-    public void attack(String enemyShortName) {
+    public hitOutcome attack(String enemyShortName) {
         if (equipped == null){
-            System.out.println("You dont have a weapon equipped!");
-            return;
+            return hitOutcome.NO_WEAPON;
         }
         int damage = equipped.getDamage();
         if (!equipped.canUse()){
-            System.out.println("Your weapon cannot be used!");
-            return;
+            return hitOutcome.WEAPON_EMPTY;
         }
 
         Enemy enemy = currentRoom.findEnemyByShortName(enemyShortName);
 
         if (enemy == null){
             equipped.use();
-            System.out.println("There's nothing to attack. You attack the air.");
-        } else {
-            enemy.hit(damage);
-            equipped.use();
-            System.out.println("You attacked '" + enemyShortName + "' Doing " + damage + ".");
+            return hitOutcome.NO_ENEMY;
         }
+        hitOutcome outcome = enemy.hit(damage);
+        equipped.use();
+        return outcome;
     }
 
     public void hit(int damage) {
