@@ -29,13 +29,13 @@ public class Adventure {
 
             String[] parts = input.split(" ", 2);
             String command = parts[0].toLowerCase();
-            String argument = parts.length > 1 ? parts[1].trim() : "";
+            String argument = parts.length > 1 ? parts[1].trim().toLowerCase() : "";
 
             map.setNext(null);
 
             boolean triedToMove = false;
             boolean goingBack = false;
-            switch (command.toLowerCase()) {
+            switch (command) {
                 case "go":
                     switch (argument) {
                         case "north":
