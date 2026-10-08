@@ -3,13 +3,13 @@ public class Fight {
     private Player player;
     private Enemy enemy;
 
-    public Fight(Player player, Enemy enemy) {
+    public Fight(Player player, String enemySortName) {
         this.player = player;
-        this.enemy = enemy;
+        this.enemy = player.getCurrentRoom().findEnemyByShortName(enemySortName);
     }
 
     public void startFight() {
-        player.attack(enemy);
+        player.attack(enemy.getShortName());
 
         if (enemy.getHealth() <= 0) {
 
