@@ -6,7 +6,7 @@ public class RangedWeapon extends Weapon {
 
 
     public RangedWeapon(String shortName, String longName, int weight, int damage, int ammunition) {
-        super(longName, shortName, weight, damage);
+        super(shortName, longName, weight, damage);
         this.ammunition = ammunition;
     }
 
