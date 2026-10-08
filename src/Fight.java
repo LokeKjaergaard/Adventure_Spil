@@ -3,33 +3,43 @@ public class Fight {
     private Player player;
     private Enemy enemy;
 
+    public enum AggressionType {
+        PASSIVE,
+        NEUTRAL,
+        AGGRESSIVE
+    }
+
+
     public Fight(Player player, String enemySortName) {
         this.player = player;
         this.enemy = player.getCurrentRoom().findEnemyByShortName(enemySortName);
     }
 
-    public void startFight() {
-        switch (enemy.getAggression()){
+
+    /*
+    public hitOutcome startFight() {
+        switch (enemy.getAggression()) {
             case PASSIVE -> {
-                player.attack(enemy.getShortName());
+                return player.attack(enemy.getShortName());
             }
+
             case NEUTRAL -> {
-                player.attack(enemy.getShortName());
+                hitOutcome playerAttackOutcome = player.attack(enemy.getShortName());
 
-
-                if (enemy.getHealth() <= 0) {
-
-                    System.out.println("you killed the enemy");
+                if (playerAttackOutcome == hitOutcome.ENEMY_DIED) {
                     enemy.getRoom().addItem(enemy.getWeapon());
                     enemy.getRoom().removeEnemy(enemy);
+                    return playerAttackOutcome;
+
                 } else {
-                    enemy.attack(player);
+                    return enemy.attack(player);
+
                 }
-
             }
-            case AGGRESSIVE -> {
 
-                if (enemy.getHealth() <= 0) {
+            case AGGRESSIVE -> {
+               hitOutcome enemyAttackOutcome = enemy.attack(player);
+                if (enemyAttackOutcome == player.) {
 
                     System.out.println("you killed the enemy");
                     enemy.getRoom().addItem(enemy.getWeapon());
@@ -42,19 +52,10 @@ public class Fight {
                 player.attack(enemy.getShortName());
 
             }
-        }
 
+}
 
 
     }
-
-    public enum AggressionType {
-        PASSIVE,
-        NEUTRAL,
-        AGGRESSIVE
-    }
-
-
-
-
+            */
 }
