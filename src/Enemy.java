@@ -8,7 +8,7 @@ public class Enemy {
     private int health;
     private Weapon weapon;
     private Room room;
-    private Fight.AggressionType aggression;
+    private final Fight.AggressionType aggression;
 
 
     public Enemy(String shortName, String longName, String description, int health, Weapon weapon, Room room, Fight.AggressionType aggression){
@@ -43,6 +43,10 @@ public class Enemy {
 
     public Room getRoom() {
         return room;
+    }
+
+    public Fight.AggressionType getAggression() {
+        return aggression;
     }
 
     public void attack(Player player){
