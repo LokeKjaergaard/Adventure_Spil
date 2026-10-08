@@ -124,8 +124,11 @@ public class Adventure {
                     Weapon weapon = player.getEquippedWeapon();
                     hitOutcome outcome = player.attack(argument);
                     ui.printAttackOutcome(outcome, argument, player.getEquippedWeapon());
-                    hitOutcome outcomeEnemy = enemy.attack(player);
-                    ui.printEnemyAttackOutcome(outcomeEnemy, enemy, player.getEquippedWeapon());
+                    if (enemy != null && outcome != hitOutcome.ENEMY_DIED){
+                        hitOutcome outcomeEnemy = enemy.attack(player);
+                        ui.printEnemyAttackOutcome(outcomeEnemy, enemy, player.getEquippedWeapon());
+                    }
+
                     break;
                 case "health":
                     ui.printPlayerHealth(player);

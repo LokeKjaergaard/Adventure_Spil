@@ -45,6 +45,10 @@ public class Enemy {
         return room;
     }
 
+    public void setRoom(Room room){
+        this.room = room;
+    }
+
     public Fight.AggressionType getAggression() {
         return aggression;
     }

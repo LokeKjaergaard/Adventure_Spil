@@ -32,7 +32,7 @@ public class Fight {
                     return playerAttackOutcome;
 
                 } else {
-                    return enemy.attack(player);
+                    return enemy.attack(player);c
 
                 }
             }

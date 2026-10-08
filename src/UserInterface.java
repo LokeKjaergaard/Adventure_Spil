@@ -89,12 +89,14 @@ public class UserInterface {
             } else text = "You are in " + room.getName();
 
         }
+
         generateBorder(text);
 
         if (!room.isDark()){
             listItems(room.getRoomItems(), "this room");
         }
         printConnectedRooms(room);
+        printEnemiesInRoom(room);
 
     }
 
@@ -194,8 +196,15 @@ public class UserInterface {
 
     public void printEnemyAttackOutcome(hitOutcome hitOutcome, Enemy enemy, Weapon weapon){
         switch (hitOutcome){
-            case ENEMY_HIT -> System.out.println("The enemy hit you and dealt ");
+            case ENEMY_HIT -> System.out.println("The enemy hit you and dealt " + enemy.getWeapon().getDamage());
             case WEAPON_EMPTY -> System.out.println("The enemy attempted to use it weapon, nothing happened.");
+        }
+    }
+
+    public void printEnemiesInRoom (Room room) {
+        ArrayList<Enemy> enemies = room.getEnemies();
+        for (Enemy enemy : enemies){
+            System.out.println(enemy.getShortName() + ": " + enemy.getLongName() + ".");
         }
     }
 }

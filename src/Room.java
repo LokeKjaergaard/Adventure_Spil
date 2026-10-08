@@ -133,6 +133,7 @@ public class Room {
 
     public void addEnemy(Enemy enemy){
         enemies.add(enemy);
+        enemy.setRoom(this);
     }
 
     public void removeEnemy(Enemy enemy){
@@ -148,7 +149,8 @@ public class Room {
 
         for (Enemy enemy : enemies) {
             currentEnemy = enemy;
-            if (currentEnemy.getShortName().equals(shortName)) {
+            String foundName = currentEnemy.getShortName().toLowerCase();
+            if (foundName.equals(shortName)) {
                 return currentEnemy;
             }
         }

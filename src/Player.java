@@ -105,7 +105,7 @@ public class Player {
     public void equip(String shortname) {
         Item item = findItemByShortName(shortname);
         if(item == null){
-            System.out.println("WeaponClasses.Weapon could not be found in inventory");
+            System.out.println("The weapon '" + shortname + "' could not be found in inventory");
         }
         else if(item instanceof Weapon){
             equipped = (Weapon) item;
