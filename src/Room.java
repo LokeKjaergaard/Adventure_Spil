@@ -34,42 +34,7 @@ public class Room {
 
 
 
-    public void printConnectedRooms() {
-        // holds the string of all possible directions.
-        String doors = "";
 
-        // north is always the first possible value, we don't need to add a comma (,)
-        if (getNorth() != null && getNorth().isVisited()) {
-            doors += "north";
-        }
-
-        // add a comma (,) if it's empty
-        if (getSouth() != null && getSouth().isVisited()) {
-            if (doors.isEmpty()) {
-                doors += "south";
-            } else doors += ", south";
-        }
-
-        if (getEast() != null && getEast().isVisited()) {
-            if (doors.isEmpty()) {
-                doors += "east";
-            } else doors += ", east";
-        }
-
-        // west is always the last value we can end the sentence with an "and" here.
-        if (getWest() != null && getWest().isVisited()) {
-            if (doors.isEmpty()) {
-                doors += "west";
-            } else doors += " and west";
-
-        }
-
-        if (doors.isEmpty()){
-
-            System.out.println("Possible directions unknown. Try to go different directions to find new rooms");
-        } else System.out.println("There are doors to the: " + doors + ".");
-
-    }
 
     public String getName() {
         return name;

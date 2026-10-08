@@ -1,4 +1,5 @@
 import Items.Item;
+import Items.Weapon;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -36,6 +37,43 @@ public class UserInterface {
         System.out.println("You look around the room. It looks like: " + room.getDescription());
     }
 
+    public void printConnectedRooms(Room room) {
+        // holds the string of all possible directions.
+        String doors = "";
+
+        // north is always the first possible value, we don't need to add a comma (,)
+        if (room.getNorth() != null && room.getNorth().isVisited()) {
+            doors += "north";
+        }
+
+        // add a comma (,) if it's empty
+        if (room.getSouth() != null && room.getSouth().isVisited()) {
+            if (doors.isEmpty()) {
+                doors += "south";
+            } else doors += ", south";
+        }
+
+        if (room.getEast() != null && room.getEast().isVisited()) {
+            if (doors.isEmpty()) {
+                doors += "east";
+            } else doors += ", east";
+        }
+
+        // west is always the last value we can end the sentence with an "and" here.
+        if (room.getWest() != null && room.getWest().isVisited()) {
+            if (doors.isEmpty()) {
+                doors += "west";
+            } else doors += " and west";
+
+        }
+
+        if (doors.isEmpty()){
+
+            System.out.println("Possible directions unknown. Try to go different directions to find new rooms");
+        } else System.out.println("There are doors to the: " + doors + ".");
+
+    }
+
     public void printWelcome(Room room){
         String text;
 
@@ -56,7 +94,7 @@ public class UserInterface {
         if (!room.isDark()){
             listItems(room.getRoomItems(), "this room");
         }
-        room.printConnectedRooms();
+        printConnectedRooms(room);
 
     }
 
@@ -86,7 +124,7 @@ public class UserInterface {
         if (!listItems.isEmpty()) {
             System.out.println("Items in " + text + ".");
             for (int i = 0; i < length; i++){
-                System.out.println("- " + listItems.get(i).getLongName());
+                System.out.println("- " + listItems.get(i).getShortName() + ": " + listItems.get(i).getLongName());
             }
         } else System.out.println("There's nothing of note in " + text + ".");
 
@@ -140,6 +178,17 @@ public class UserInterface {
                         System.out.println("Ouch! That food was poison. You lose " + healthGain + " health!");
                     break;
             }
+        }
+    }
+
+    public void printAttackOutcome(hitOutcome hitOutcome, String enemyShortName, Weapon weapon){
+
+        switch (hitOutcome){
+            case ENEMY_HIT -> System.out.println("You attacked '" + enemyShortName + "' Doing " + weapon.getDamage() + ".");
+            case NO_ENEMY -> System.out.println("There's nothing to attack. You attack the air.");
+            case NO_WEAPON -> System.out.println("You dont have a weapon equipped!");
+            case ENEMY_DIED -> System.out.println("You attack the enemy. The enemy died.");
+            case WEAPON_EMPTY -> System.out.println("Your weapon cannot be used!");
         }
     }
 }
